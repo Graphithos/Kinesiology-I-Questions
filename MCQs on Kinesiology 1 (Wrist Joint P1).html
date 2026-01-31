@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 (Wrist Joint P1) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 (Wrist Joint P1) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 (Wrist Joint P1)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">45</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">45</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/45</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 45 questions from the PDF)
+        const quizData = [
+            {
+                question: "How many carpal bones are found in the human wrist?",
+                options: [
+                    "6",
+                    "7",
+                    "8",
+                    "9"
+                ],
+                answer: 2,
+                explanation: "8 (Page 4)"
+            },
+            {
+                question: "The two primary articulations of the wrist are the:",
+                options: [
+                    "Radiocarpal and Intercarpal joints",
+                    "Radiocarpal and Midcarpal joints",
+                    "Midcarpal and Carpometacarpal joints",
+                    "Distal Radioulnar and Radiocarpal joints"
+                ],
+                answer: 1,
+                explanation: "Radiocarpal and Midcarpal joints (Page 4)"
+            },
+            {
+                question: "The palpable dorsal tubercle on the distal radius serves to:",
+                options: [
+                    "Provide attachment for the flexor carpi radialis",
+                    "Separate the tendons of the extensor carpi radialis brevis and extensor pollicis longus",
+                    "Form the medial wall of the carpal tunnel",
+                    "Articulate with the pisiform bone"
+                ],
+                answer: 1,
+                explanation: "Separate the tendons of the extensor carpi radialis brevis and extensor pollicis longus (Page 9)"
+            },
+            {
+                question: "The distal articular surface of the radius is:",
+                options: [
+                    "Convex in all directions",
+                    "Flat",
+                    "Concave in all directions",
+                    "Convex laterally and concave medially"
+                ],
+                answer: 2,
+                explanation: "Concave in all directions (Page 11)"
+            },
+            {
+                question: "The distal radius angles about 25 degrees in the ulnar direction. This configuration allows for:",
+                options: [
+                    "Greater radial deviation than ulnar deviation",
+                    "Greater flexion than extension",
+                    "Greater ulnar deviation than radial deviation",
+                    "Greater extension than flexion"
+                ],
+                answer: 2,
+                explanation: "Greater ulnar deviation than radial deviation (Page 13)"
+            },
+            {
+                question: "The distal radius angles about 10 degrees in the palmar direction. This configuration allows for:",
+                options: [
+                    "Greater flexion than extension",
+                    "Greater radial deviation than ulnar deviation",
+                    "Greater ulnar deviation than radial deviation",
+                    "Greater extension than flexion"
+                ],
+                answer: 0,
+                explanation: "Greater flexion than extension (Page 13)"
+            },
+            {
+                question: "Which of the following lists the bones of the proximal row of the corpus from radial to ulnar?",
+                options: [
+                    "Trapezium, Trapezoid, Capitate, Hamate",
+                    "Scaphoid, Lunate, Triquetrum, Pisiform",
+                    "Scaphoid, Capitate, Hamate, Pisiform",
+                    "Trapezium, Scaphoid, Lunate, Triquetrum"
+                ],
+                answer: 1,
+                explanation: "Scaphoid, Lunate, Triquetrum, Pisiform (Page 15)"
+            },
+            {
+                question: "Which carpal bone is the most frequently fractured?",
+                options: [
+                    "Lunate",
+                    "Triquetrum",
+                    "Capitate",
+                    "Scaphoid"
+                ],
+                answer: 3,
+                explanation: "Scaphoid (Page 17)"
+            },
+            {
+                question: "The scaphoid bone articulates with how many other bones?",
+                options: [
+                    "Three",
+                    "Four",
+                    "Five",
+                    "Six"
+                ],
+                answer: 2,
+                explanation: "Five (Page 16)"
+            },
+            {
+                question: "Which carpal bone is described as the most inherently unstable due to its shape and lack of muscular or ligamentous attachments?",
+                options: [
+                    "Scaphoid",
+                    "Lunate",
+                    "Triquetrum",
+                    "Pisiform"
+                ],
+                answer: 1,
+                explanation: "Lunate (Page 19)"
+            },
+            {
+                question: "The pisiform bone is embedded within the tendon of which muscle?",
+                options: [
+                    "Flexor Carpi Radialis",
+                    "Extensor Carpi Ulnaris",
+                    "Flexor Carpi Ulnaris",
+                    "Palmaris Longus"
+                ],
+                answer: 2,
+                explanation: "Flexor Carpi Ulnaris (Page 21)"
+            },
+            {
+                question: "Which carpal bone has a saddle-shaped distal surface that articulates with the first metacarpal?",
+                options: [
+                    "Trapezium",
+                    "Trapezoid",
+                    "Capitate",
+                    "Scaphoid"
+                ],
+                answer: 0,
+                explanation: "Trapezium (Page 22)"
+            },
+            {
+                question: "The trapezoid bone makes a relatively firm articulation with the base of which metacarpal bone?",
+                options: [
+                    "First",
+                    "Second",
+                    "Third",
+                    "Fifth"
+                ],
+                answer: 1,
+                explanation: "Second (Page 24)"
+            },
+            {
+                question: "Which is the largest of all the carpal bones?",
+                options: [
+                    "Scaphoid",
+                    "Lunate",
+                    "Capitate",
+                    "Hamate"
+                ],
+                answer: 2,
+                explanation: "Capitate (Page 25)"
+            },
+            {
+                question: "The axis of rotation for all wrist motions passes through which bone?",
+                options: [
+                    "Scaphoid",
+                    "Lunate",
+                    "Capitate",
+                    "Radius"
+                ],
+                answer: 2,
+                explanation: "Capitate (Page 25)"
+            },
+            {
+                question: "The hook of the hamate and the pisiform provide bony attachments for which structure?",
+                options: [
+                    "The dorsal radiocarpal ligament",
+                    "The lateral side of the transverse carpal ligament",
+                    "The tendon of the flexor carpi radialis",
+                    "The medial side of the transverse carpal ligament"
+                ],
+                answer: 3,
+                explanation: "The medial side of the transverse carpal ligament (Page 26)"
+            },
+            {
+                question: "The transverse carpal ligament attaches to all of the following EXCEPT the:",
+                options: [
+                    "Pisiform",
+                    "Hook of the Hamate",
+                    "Tubercle of the Trapezium",
+                    "Styloid process of the Ulna"
+                ],
+                answer: 3,
+                explanation: "Styloid process of the Ulna (Page 27)"
+            },
+            {
+                question: "A primary function of the transverse carpal ligament is to:",
+                options: [
+                    "Provide blood supply to the carpal bones",
+                    "Restrain the flexor tendons from \"bowstringing\" anteriorly",
+                    "Serve as the primary attachment for the pronator quadratus muscle",
+                    "Form the floor of the distal radioulnar joint"
+                ],
+                answer: 1,
+                explanation: "Restrain the flexor tendons from \"bowstringing\" anteriorly (Page 28)"
+            },
+            {
+                question: "The proximal component of the radiocarpal joint includes the concave surface of the radius and the:",
+                options: [
+                    "Head of the capitate",
+                    "Articular disc (triangular fibrocartilage)",
+                    "Base of the third metacarpal",
+                    "Trapezium and trapezoid"
+                ],
+                answer: 1,
+                explanation: "Articular disc (triangular fibrocartilage) (Page 30)"
+            },
+            {
+                question: "Approximately what percentage of the compression force crossing the radiocarpal joint passes through the articular disc to the ulna?",
+                options: [
+                    "20%",
+                    "50%",
+                    "80%",
+                    "100%"
+                ],
+                answer: 0,
+                explanation: "20% (Page 30)"
+            },
+            {
+                question: "The joint contact area at the radiocarpal joint is greatest when the wrist is in:",
+                options: [
+                    "Full flexion",
+                    "Full radial deviation",
+                    "Partial extension and slight ulnar deviation",
+                    "Full supination"
+                ],
+                answer: 2,
+                explanation: "Partial extension and slight ulnar deviation (Page 30)"
+            },
+            {
+                question: "The midcarpal joint is formed by the articulation between the:",
+                options: [
+                    "Radius and the proximal carpal row",
+                    "Ulna and the triangular fibrocartilage complex",
+                    "Proximal and distal rows of carpal bones",
+                    "Distal carpal row and the metacarpal bones"
+                ],
+                answer: 2,
+                explanation: "Proximal and distal rows of carpal bones (Page 32)"
+            },
+            {
+                question: "The medial compartment of the midcarpal joint is described as functioning like a:",
+                options: [
+                    "Hinge joint",
+                    "Pivot joint",
+                    "Ball-and-socket joint",
+                    "Plane joint"
+                ],
+                answer: 2,
+                explanation: "Ball-and-socket joint (Page 32)"
+            },
+            {
+                question: "How many separate intercarpal articulations can be identified within the wrist?",
+                options: [
+                    "8",
+                    "10",
+                    "13",
+                    "15"
+                ],
+                answer: 2,
+                explanation: "13 (Page 34)"
+            },
+            {
+                question: "Ligaments that have proximal attachments on the radius or ulna and distal attachments within the wrist are classified as:",
+                options: [
+                    "Intrinsic ligaments",
+                    "Extrinsic ligaments",
+                    "Interosseous ligaments",
+                    "Capsular ligaments"
+                ],
+                answer: 1,
+                explanation: "Extrinsic ligaments (Page 35)"
+            },
+            {
+                question: "Which of the following is an intrinsic ligament of the wrist?",
+                options: [
+                    "Scapholunate Ligament",
+                    "Dorsal Radiocarpal Ligament",
+                    "Radial Collateral Ligament",
+                    "Palmar Unocarpal Ligament"
+                ],
+                answer: 0,
+                explanation: "Scapholunate Ligament (Page 36)"
+            },
+            {
+                question: "The Triangular Fibrocartilage Complex (TFCC) occupies most of the:",
+                options: [
+                    "Carpal Tunnel",
+                    "Unocarpal Space",
+                    "Midcarpal Joint",
+                    "Anatomical Snuffbox"
+                ],
+                answer: 1,
+                explanation: "Unocarpal Space (Page 39)"
+            },
+            {
+                question: "The central portion of the triangular fibrocartilage is:",
+                options: [
+                    "Highly vascular and has excellent healing potential",
+                    "The primary site for ligamentous muscle attachments",
+                    "Fused directly to the lunate bone",
+                    "Avascular with poor or no healing potential"
+                ],
+                answer: 3,
+                explanation: "Avascular with poor or no healing potential (Page 39)"
+            },
+            {
+                question: "Which of the following is NOT a function of the Triangular Fibrocartilage Complex (TFCC)?",
+                options: [
+                    "Primary stabilizer of the distal radioulnar joint",
+                    "Reinforces the ulnar side of the wrist",
+                    "Forms the roof of the carpal tunnel",
+                    "Transfers part of the compression force from the hand to the forearm"
+                ],
+                answer: 2,
+                explanation: "Forms the roof of the carpal tunnel (Page 43)"
+            },
+            {
+                question: "The wrist has how many degrees of freedom?",
+                options: [
+                    "One",
+                    "Two",
+                    "Three",
+                    "Four"
+                ],
+                answer: 1,
+                explanation: "Two (Page 44)"
+            },
+            {
+                question: "The axis of rotation for wrist flexion and extension runs in which direction?",
+                options: [
+                    "Anterior-Posterior",
+                    "Superior-Inferior",
+                    "Medial-Lateral",
+                    "Vertical"
+                ],
+                answer: 2,
+                explanation: "Medial-Lateral (Page 44)"
+            },
+            {
+                question: "Which wrist motion typically has a greater range, flexion or extension?",
+                options: [
+                    "Flexion",
+                    "Extension",
+                    "They are equal",
+                    "It depends on the individual"
+                ],
+                answer: 0,
+                explanation: "Flexion (Page 44)"
+            },
+            {
+                question: "Wrist extension is limited primarily by the stiffness in the:",
+                options: [
+                    "Dorsal radiocarpal ligaments",
+                    "Thick palmar radiocarpal ligaments",
+                    "Radial collateral ligament",
+                    "Triangular fibrocartilage complex"
+                ],
+                answer: 1,
+                explanation: "Thick palmar radiocarpal ligaments (Page 44)"
+            },
+            {
+                question: "The range of extension of the wrist is:",
+                options: [
+                    "15-20 degrees",
+                    "70-85 degrees",
+                    "60-75 degrees",
+                    "35-40 degrees"
+                ],
+                answer: 2,
+                explanation: "60-75 degrees (Page 44)"
+            },
+            {
+                question: "The groove on the trapezium accommodates the tendon of the:",
+                options: [
+                    "Flexor Carpi Ulnaris",
+                    "Flexor Carpi Radialis",
+                    "Extensor Pollicis Brevis",
+                    "Abductor Pollicis Longus"
+                ],
+                answer: 1,
+                explanation: "Flexor Carpi Radialis (Page 12)"
+            },
+            {
+                question: "The scaphoid's distal pole projects approximately how many degrees obliquely and palmarly?",
+                options: [
+                    "10 degrees",
+                    "20 degrees",
+                    "30 degrees",
+                    "45 degrees"
+                ],
+                answer: 2,
+                explanation: "30 degrees (Page 16)"
+            },
+            {
+                question: "The lunate's distal surface is deeply concave, accepting the medial half of the head of the capitate and part of the apex of the:",
+                options: [
+                    "Hamate",
+                    "Trapezoid",
+                    "Trapezium",
+                    "Triquetrum"
+                ],
+                answer: 0,
+                explanation: "Hamate (Page 19)"
+            },
+            {
+                question: "The range of ulnar deviation of the wrist is:",
+                options: [
+                    "15-20 degrees",
+                    "60-75 degrees",
+                    "70-85 degrees",
+                    "35-40 degrees"
+                ],
+                answer: 3,
+                explanation: "35-40 degrees (Page 46)"
+            },
+            {
+                question: "The capitate is well stabilized between the hamate and the:",
+                options: [
+                    "Trapezium",
+                    "Trapezoid",
+                    "Scaphoid",
+                    "Lunate"
+                ],
+                answer: 1,
+                explanation: "Trapezoid (Page 25)"
+            },
+            {
+                question: "The base (distal surface) of the hamate articulates with the bases of which metacarpals?",
+                options: [
+                    "First and Second",
+                    "Second and Third",
+                    "Third and Fourth",
+                    "Fourth and Fifth"
+                ],
+                answer: 3,
+                explanation: "Fourth and Fifth (Page 26)"
+            },
+            {
+                question: "The medial compartment of the midcarpal joint includes the head of the capitate and the apex of the hamate fitting into a recess formed by the scaphoid, lunate, and:",
+                options: [
+                    "Pisiform",
+                    "Trapezium",
+                    "Triquetrum",
+                    "Trapezoid"
+                ],
+                answer: 2,
+                explanation: "Triquetrum (Page 32)"
+            },
+            {
+                question: "The lateral compartment of the midcarpal joint shows less movement than the medial compartment and involves the articulation between the scaphoid and the:",
+                options: [
+                    "Lunate and Triquetrum",
+                    "Capitate and Hamate",
+                    "Trapezium and Trapezoid",
+                    "Radius and Ulna"
+                ],
+                answer: 2,
+                explanation: "Trapezium and Trapezoid (Page 32)"
+            },
+            {
+                question: "The range of flexion of the wrist is:",
+                options: [
+                    "70-85 degrees",
+                    "15-20 degrees",
+                    "60-75 degrees",
+                    "35-40 degrees"
+                ],
+                answer: 0,
+                explanation: "70-85 degrees (Page 44)"
+            },
+            {
+                question: "The central feature of the TFCC is the:",
+                options: [
+                    "Ulnar Collateral Ligament",
+                    "Articular Disc (Triangular Fibrocartilage)",
+                    "Dorsal Radioulnar Ligament",
+                    "Sheath of the Extensor Carpi Ulnaris"
+                ],
+                answer: 1,
+                explanation: "Articular Disc (Triangular Fibrocartilage) (Page 41)"
+            },
+            {
+                question: "The total range of rotation in the sagittal plane (flexion + extension) for the wrist is about:",
+                options: [
+                    "90 to 110 degrees",
+                    "110 to 130 degrees",
+                    "130 to 160 degrees",
+                    "160 to 180 degrees"
+                ],
+                answer: 2,
+                explanation: "130 to 160 degrees (Page 44)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 (Wrist Joint P1).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

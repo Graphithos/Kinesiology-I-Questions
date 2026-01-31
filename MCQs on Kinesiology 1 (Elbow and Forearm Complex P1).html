@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 Lecture No. 4 Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 Lecture No. 4 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 Lecture No. 4</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">50</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">50</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/50</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 50 questions from the PDF)
+        const quizData = [
+            {
+                question: "The distal end of the humerus terminates medially as the:",
+                options: [
+                    "Capitulum and lateral epicondyle",
+                    "Trochlea and medial epicondyle",
+                    "Olecranon fossa and coronoid fossa",
+                    "Radial fossa and capitulum"
+                ],
+                answer: 1,
+                explanation: "Trochlea and medial epicondyle (Page 4)"
+            },
+            {
+                question: "The prominent medial lip of the trochlea projects farther distally than the lateral lip, creating which effect?",
+                options: [
+                    "The natural cubitus valgus angle",
+                    "The screw-home mechanism during extension",
+                    "The axial rotation of the ulna during flexion",
+                    "The stability of the humeroradial joint"
+                ],
+                answer: 0,
+                explanation: "The natural cubitus valgus angle (Page 4)"
+            },
+            {
+                question: "The coronoid fossa is located just proximal to the anterior aspect of which structure?",
+                options: [
+                    "The Capitulum",
+                    "The Trochlea",
+                    "The Medial Epicondyle",
+                    "The Lateral Epicondyle"
+                ],
+                answer: 1,
+                explanation: "The Trochlea (Page 4)"
+            },
+            {
+                question: "The medial epicondyle serves as the proximal attachment for all of the following EXCEPT:",
+                options: [
+                    "The medial collateral ligament",
+                    "Most forearm supinator muscles",
+                    "Most forearm pronator muscles",
+                    "Most wrist flexor muscles"
+                ],
+                answer: 1,
+                explanation: "Most forearm supinator muscles (Page 6)"
+            },
+            {
+                question: "The lateral epicondyle serves as the proximal attachment for the:",
+                options: [
+                    "Medial collateral ligament and wrist flexors",
+                    "Brachialis muscle and triceps brachii",
+                    "Annular ligament and pronator teres",
+                    "Lateral collateral ligament complex and wrist extensors"
+                ],
+                answer: 3,
+                explanation: "Lateral collateral ligament complex and wrist extensors (Page 7)"
+            },
+            {
+                question: "The large, jawlike process of the ulna that articulates with the trochlea is the:",
+                options: [
+                    "Radial Notch",
+                    "Coronoid Process",
+                    "Trochlear Notch",
+                    "Supinator Crest"
+                ],
+                answer: 2,
+                explanation: "Trochlear Notch (Page 10)"
+            },
+            {
+                question: "The radial notch of the ulna articulates with what part of the radius to form the proximal radio-ulnar joint?",
+                options: [
+                    "The Fovea",
+                    "The Radial Head",
+                    "The Radial Tuberosity",
+                    "The Styloid Process"
+                ],
+                answer: 1,
+                explanation: "The Radial Head (Page 11, 14)"
+            },
+            {
+                question: "The supinator crest of the ulna serves as an attachment for the:",
+                options: [
+                    "Brachialis muscle",
+                    "Biceps brachii muscle",
+                    "Supinator muscle and lateral ulnar collateral ligament",
+                    "Pronator teres muscle and medial collateral ligament"
+                ],
+                answer: 2,
+                explanation: "Supinator muscle and lateral ulnar collateral ligament (Page 11)"
+            },
+            {
+                question: "The tuberosity of the ulna is formed by the attachment of which muscle?",
+                options: [
+                    "Triceps Brachii",
+                    "Biceps Brachii",
+                    "Brachioradialis",
+                    "Brachialis"
+                ],
+                answer: 3,
+                explanation: "Brachialis (Page 13)"
+            },
+            {
+                question: "Articular cartilage covers approximately how many degrees of the rim of the radial head?",
+                options: [
+                    "180 degrees",
+                    "280 degrees",
+                    "300 degrees",
+                    "360 degrees"
+                ],
+                answer: 1,
+                explanation: "280 degrees (Page 14)"
+            },
+            {
+                question: "The biceps brachii muscle attaches to the radius at the:",
+                options: [
+                    "Ulnar Notch",
+                    "Styloid Process",
+                    "Radial (Bicipital) Tuberosity",
+                    "Fovea"
+                ],
+                answer: 2,
+                explanation: "Radial (Bicipital) Tuberosity (Page 15)"
+            },
+            {
+                question: "Which joint provides significant stability to the elbow through the tight fit between the trochlea and trochlear notch?",
+                options: [
+                    "The Humeroradial Joint",
+                    "The Proximal Radio-Ulnar Joint",
+                    "The Humero-ulnar Joint",
+                    "The Distal Radio-Ulnar Joint"
+                ],
+                answer: 2,
+                explanation: "The Humero-ulnar Joint (Page 19)"
+            },
+            {
+                question: "The elbow is best classified as a:",
+                options: [
+                    "Modified Hinge Joint",
+                    "Pivot Joint",
+                    "Saddle Joint",
+                    "Ball and Socket Joint"
+                ],
+                answer: 0,
+                explanation: "Modified Hinge Joint (Page 20)"
+            },
+            {
+                question: "The normal cubitus valgus angle in healthy adults is approximately:",
+                options: [
+                    "5 degrees",
+                    "13 degrees",
+                    "20 degrees",
+                    "30 degrees"
+                ],
+                answer: 1,
+                explanation: "13 degrees (Page 21)"
+            },
+            {
+                question: "An excessive cubitus valgus deformity may overstretch and damage which nerve?",
+                options: [
+                    "Radial Nerve",
+                    "Median Nerve",
+                    "Musculocutaneous Nerve",
+                    "Ulnar Nerve"
+                ],
+                answer: 3,
+                explanation: "Ulnar Nerve (Page 22)"
+            },
+            {
+                question: "The articular capsule of the elbow encloses which of the following joints:",
+                options: [
+                    "Humero-ulnar joint",
+                    "Humeroradial joint",
+                    "Proximal radio-ulnar joint",
+                    "All of the following"
+                ],
+                answer: 3,
+                explanation: "All of the above (Page 24)"
+            },
+            {
+                question: "Which fibers of the Medial Collateral Ligament (MCL) are the strongest and provide the primary resistance against valgus force?",
+                options: [
+                    "Posterior Fibers",
+                    "Anterior Fibers",
+                    "Transverse Fibers",
+                    "Oblique Fibers"
+                ],
+                answer: 1,
+                explanation: "Anterior Fibers (Page 25)"
+            },
+            {
+                question: "The posterior fibers of the MCL become taut in the extremes of:",
+                options: [
+                    "Elbow Extension",
+                    "Elbow Flexion",
+                    "Forearm Pronation",
+                    "Forearm Supination"
+                ],
+                answer: 1,
+                explanation: "Elbow Flexion (Page 26)"
+            },
+            {
+                question: "The transverse fibers of the MCL provide limited articular stability because they:",
+                options: [
+                    "Attach to the radius",
+                    "Originate and insert on the same bone (ulna)",
+                    "Are the thickest part of the ligament",
+                    "Blend with the annular ligament"
+                ],
+                answer: 1,
+                explanation: "Originate and insert on the same bone (ulna) (Page 26)"
+            },
+            {
+                question: "Which muscle is considered a dynamic medial stabilizer of the elbow, resisting valgus strain?",
+                options: [
+                    "Brachioradialis",
+                    "Supinator",
+                    "Flexor Carpi Ulnaris",
+                    "Extensor Carpi Radialis Longus"
+                ],
+                answer: 2,
+                explanation: "Flexor Carpi Ulnaris (Page 29)"
+            },
+            {
+                question: "The MCL is most susceptible to injury from a fall onto a(n):",
+                options: [
+                    "Outstretched and supinated upper extremity",
+                    "Flexed and pronated upper extremity",
+                    "Outstretched and adducted upper extremity",
+                    "Laterally flexed trunk"
+                ],
+                answer: 0,
+                explanation: "Outstretched and supinated upper extremity (Page 30)"
+            },
+            {
+                question: "A severe valgus-producing force can injure the MCL and is often associated with a compression fracture of the:",
+                options: [
+                    "Olecranon Process",
+                    "Coronoid Process",
+                    "Radial Head",
+                    "Ulnar Shaft"
+                ],
+                answer: 2,
+                explanation: "Radial Head (Page 30)"
+            },
+            {
+                question: "Which fiber bundle of the lateral collateral ligament complex attaches distally to the supinator crest of the ulna?",
+                options: [
+                    "The Radial Collateral Ligament",
+                    "The Lateral (Ulnar) Collateral Ligament (LUCL)",
+                    "The Annular Ligament",
+                    "The Oblique Cord"
+                ],
+                answer: 1,
+                explanation: "The Lateral (Ulnar) Collateral Ligament (LUCL) (Page 36)"
+            },
+            {
+                question: "The \"position of comfort\" for an inflamed or swollen elbow is approximately 80 degrees of flexion because:",
+                options: [
+                    "The joint capsule is most taut",
+                    "The ligaments are maximally stretched",
+                    "Muscle spasticity is reduced",
+                    "The intracapsular pressure is lowest"
+                ],
+                answer: 3,
+                explanation: "The intracapsular pressure is lowest (Page 37)"
+            },
+            {
+                question: "The capsular pattern for arthritis in the elbow joint is characterized by:",
+                options: [
+                    "A greater loss of extension than flexion",
+                    "A greater loss of flexion than extension",
+                    "Equal loss of flexion and extension",
+                    "A primary loss of supination"
+                ],
+                answer: 1,
+                explanation: "A greater loss of flexion than extension (Page 38)"
+            },
+            {
+                question: "The close-packed position of the humero-ulnar joint is:",
+                options: [
+                    "70 degrees of flexion and 10 degrees of supination",
+                    "90 degrees of flexion and neutral rotation",
+                    "Full extension and maximum forearm supination",
+                    "Full flexion and maximum forearm pronation"
+                ],
+                answer: 2,
+                explanation: "Full extension and maximum forearm supination (Page 38)"
+            },
+            {
+                question: "A functional arc of motion for many activities of daily living at the elbow is between:",
+                options: [
+                    "0 and 90 degrees of flexion",
+                    "30 and 130 degrees of flexion",
+                    "60 and 120 degrees of flexion",
+                    "Full extension and full flexion"
+                ],
+                answer: 1,
+                explanation: "30 and 130 degrees of flexion (Page 42)"
+            },
+            {
+                question: "During flexion at the humero-ulnar joint, the arthrokinematics involve the concave trochlear notch of the ulna:",
+                options: [
+                    "Rolling and sliding in the same directions on the convex trochlea",
+                    "Spinning on the convex trochlea",
+                    "Rolling and sliding in opposite directions on the convex trochlea",
+                    "Gliding anteriorly without rolling"
+                ],
+                answer: 0,
+                explanation: "Rolling and sliding in same directions on the convex trochlea (Page 48)"
+            },
+            {
+                question: "Stretching of the ulnar nerve from prolonged flexion can be surgically treated by:",
+                options: [
+                    "Releasing the annular ligament",
+                    "Transferring the nerve anterior to the medial epicondyle",
+                    "Shortening the medial collateral ligament",
+                    "Resecting the radial head"
+                ],
+                answer: 1,
+                explanation: "Transferring the nerve anterior to the medial epicondyle (Page 49)"
+            },
+            {
+                question: "At the humeroradial joint, the concave ______ of the radius rolls and slides on the convex capitulum.",
+                options: [
+                    "Radial Notch",
+                    "Fovea",
+                    "Radial Tuberosity",
+                    "Articular Rim"
+                ],
+                answer: 1,
+                explanation: "Fovea (Page 51)"
+            },
+            {
+                question: "The humeroradial joint provides about what percentage of the resistance against a valgus-producing force?",
+                options: [
+                    "20%",
+                    "35%",
+                    "50%",
+                    "80%"
+                ],
+                answer: 2,
+                explanation: "50% (Page 53)"
+            },
+            {
+                question: "The most prominent and thickest fibers of the interosseous membrane are known as the:",
+                options: [
+                    "Oblique Cord",
+                    "Distal Oblique Fibers",
+                    "Central Band",
+                    "Quadratic Ligament"
+                ],
+                answer: 2,
+                explanation: "Central Band (Page 54)"
+            },
+            {
+                question: "The central band of the interosseous membrane is directed distal-medially from the radius to the ulna at an angle of about:",
+                options: [
+                    "10 degrees",
+                    "20 degrees",
+                    "45 degrees",
+                    "90 degrees"
+                ],
+                answer: 1,
+                explanation: "20 degrees (Page 54)"
+            },
+            {
+                question: "The primary function of the oblique cord at the proximal forearm is to:",
+                options: [
+                    "Limit distal migration of the radius relative to the ulna",
+                    "Provide a pulley for the biceps tendon",
+                    "Resist varus-producing forces at the elbow",
+                    "Serve as the main attachment for the supinator muscle"
+                ],
+                answer: 0,
+                explanation: "Limit distal migration of the radius relative to the ulna (Page 55)"
+            },
+            {
+                question: "Approximately what percentage of the compression force crossing the wrist is directed through the radiocarpal joint?",
+                options: [
+                    "20%",
+                    "50%",
+                    "80%",
+                    "100%"
+                ],
+                answer: 2,
+                explanation: "80% (Page 58)"
+            },
+            {
+                question: "The interosseous membrane functions to:",
+                options: [
+                    "Transmit force from the ulna to the radius",
+                    "Transmit force from the radius to the ulna",
+                    "Prevent any force transmission between the radius and ulna",
+                    "Only serve as a muscle attachment site"
+                ],
+                answer: 1,
+                explanation: "Transmit force from the radius to the ulna (Page 59)"
+            },
+            {
+                question: "During a compression force through the hand (like a fall), the force is transferred from the radius to the ulna via the interosseous membrane, allowing the humero-ulnar and humeroradial joints to:",
+                options: [
+                    "Independently dislocate",
+                    "More equally share the compression force",
+                    "Experience only tensile forces",
+                    "Lock into a close-packed position"
+                ],
+                answer: 1,
+                explanation: "More equally share the compression force (Page 60)"
+            },
+            {
+                question: "Holding a heavy suitcase with the elbow extended creates a distracting force that primarily slackens the:",
+                options: [
+                    "Annular Ligament",
+                    "Medial Collateral Ligament",
+                    "Interosseous Membrane",
+                    "Lateral Collateral Ligament"
+                ],
+                answer: 2,
+                explanation: "Interosseous Membrane (Page 63)"
+            },
+            {
+                question: "The axis of rotation for forearm pronation and supination runs from:",
+                options: [
+                    "The medial epicondyle to the radial styloid process",
+                    "The lateral epicondyle to the ulnar styloid process",
+                    "The radial head to the ulnar head",
+                    "The capitulum to the trochlea"
+                ],
+                answer: 2,
+                explanation: "The radial head to the ulnar head (Page 66)"
+            },
+            {
+                question: "The fibro-osseous ring that holds the radial head against the ulna is formed by the radial notch of the ulna and the:",
+                options: [
+                    "Quadratic Ligament",
+                    "Oblique Cord",
+                    "Lateral Collateral Ligament",
+                    "Annular Ligament"
+                ],
+                answer: 3,
+                explanation: "Annular Ligament (Page 69)"
+            },
+            {
+                question: "What percentage of the fibro-osseous ring is formed by the annular ligament?",
+                options: [
+                    "25%",
+                    "50%",
+                    "75%",
+                    "100%"
+                ],
+                answer: 2,
+                explanation: "75% (Page 69)"
+            },
+            {
+                question: "The internal circumference of the annular ligament is lined with cartilage to:",
+                options: [
+                    "Strengthen the ligament against valgus force",
+                    "Provide blood supply to the radial head",
+                    "Reduce friction against the radial head during rotation",
+                    "Attach the supinator muscle"
+                ],
+                answer: 2,
+                explanation: "Reduce friction against the radial head during rotation (Page 70)"
+            },
+            {
+                question: "The thin, fibrous ligament that stabilizes the proximal radio-ulnar joint by attaching from the ulna to the medial surface of the radial neck is the:",
+                options: [
+                    "Quadratic Ligament",
+                    "Oblique Cord",
+                    "Central Band",
+                    "Lateral Collateral Ligament"
+                ],
+                answer: 0,
+                explanation: "Quadratic Ligament (Page 72)"
+            },
+            {
+                question: "The distal radio-ulnar joint consists of the convex ulnar head articulating with the ulnar notch of the radius and the:",
+                options: [
+                    "Triangular Fibrocartilage Complex (TFCC)",
+                    "Annular Ligament",
+                    "Oblique Cord",
+                    "Scaphoid Bone"
+                ],
+                answer: 0,
+                explanation: "Triangular Fibrocartilage Complex (TFCC) (Page 73)"
+            },
+            {
+                question: "The articular disc of the distal radio-ulnar joint is also known as the:",
+                options: [
+                    "Annular Ligament",
+                    "Central Band",
+                    "Triangular Fibrocartilage",
+                    "Quadratic Ligament"
+                ],
+                answer: 2,
+                explanation: "Triangular Fibrocartilage (Page 74)"
+            },
+            {
+                question: "The primary stabilizer of the distal radio-ulnar joint is the:",
+                options: [
+                    "Pronator Quadratus muscle",
+                    "Extensor Carpi Ulnaris tendon",
+                    "Triangular Fibrocartilage Complex (TFCC)",
+                    "Distal oblique fibers of the interosseous membrane"
+                ],
+                answer: 2,
+                explanation: "Triangular Fibrocartilage Complex (TFCC) (Page 77)"
+            },
+            {
+                question: "Weakening of the TFCC is often an early clinical sign of:",
+                options: [
+                    "Osteoarthritis",
+                    "Rheumatoid Arthritis",
+                    "Gout",
+                    "Osteoporosis"
+                ],
+                answer: 1,
+                explanation: "Rheumatoid Arthritis (Page 77)"
+            },
+            {
+                question: "The neutral (zero) reference position for forearm rotation is the:",
+                options: [
+                    "\"Palm-down\" position",
+                    "\"Palm-up\" position",
+                    "\"Fist-clenched\" position",
+                    "\"Thumb-up\" position"
+                ],
+                answer: 3,
+                explanation: "\"Thumb-up\" position (Page 78)"
+            },
+            {
+                question: "The functional arc of forearm rotation required for many activities of daily living is about:",
+                options: [
+                    "50 degrees",
+                    "100 degrees",
+                    "120 degrees",
+                    "150 degrees"
+                ],
+                answer: 1,
+                explanation: "100 degrees (Page 78)"
+            },
+            {
+                question: "Reduced forearm pronation can be partially compensated by shoulder:",
+                options: [
+                    "Flexion and Adduction",
+                    "Extension and Abduction",
+                    "Internal Rotation and Abduction",
+                    "External Rotation and Adduction"
+                ],
+                answer: 2,
+                explanation: "Internal Rotation and Abduction (Page 79)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 Lecture No. 4.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

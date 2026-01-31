@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 (Hand P3) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 (Hand P3) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 (Hand Muscles, Intrinsic Muscles, and Clinical Conditions)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">40</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">40</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/40</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (40 questions from the PDF)
+        const quizData = [
+            {
+                question: "How many intrinsic muscles are there in the hand?",
+                options: [
+                    "16",
+                    "18",
+                    "20",
+                    "22"
+                ],
+                answer: 2,
+                explanation: "C) 20 (Page 38)"
+            },
+            {
+                question: "The main collective action of the thenar eminence muscles is to position the thumb for:",
+                options: [
+                    "Extension",
+                    "Opposition",
+                    "Adduction",
+                    "Reposition"
+                ],
+                answer: 1,
+                explanation: "B) Opposition (Page 40)"
+            },
+            {
+                question: "Which muscle provides proximal stability to the thenar eminence muscles by attaching into the transverse carpal ligament?",
+                options: [
+                    "Palmaris Longus (PL)",
+                    "Flexor Pollicis Longus (FPL)",
+                    "Abductor Pollicis Longus (APL)",
+                    "Extensor Pollicis Brevis (EPB)"
+                ],
+                answer: 0,
+                explanation: "A) Palmaris Longus (PL) (Page 40)"
+            },
+            {
+                question: "A severe injury to the median nerve would result in paralysis of the thenar eminence muscles. What is a primary functional consequence?",
+                options: [
+                    "Loss of thumb adduction",
+                    "Loss of thumb opposition",
+                    "Loss of wrist extension",
+                    "Loss of finger abduction"
+                ],
+                answer: 1,
+                explanation: "B) Loss of thumb opposition (Page 42)"
+            },
+            {
+                question: "Muscles in which quadrant are innervated solely by the median nerve?",
+                options: [
+                    "Flexion-Adduction quadrant",
+                    "Flexion-Abduction quadrant",
+                    "Extension-Adduction quadrant",
+                    "Extension-Abduction quadrant"
+                ],
+                answer: 1,
+                explanation: "B) Flexion-Abduction quadrant (Page 44)"
+            },
+            {
+                question: "Following a median nerve injury, an adduction contracture of the thumb's CMC joint can occur primarily because:",
+                options: [
+                    "The abductor pollicis longus (APL) becomes spastic.",
+                    "The extensor pollicis longus (EPL) over-activates.",
+                    "The hypothenar muscles pull the thumb ulnarly.",
+                    "The stronger adduction torque from the ulnar-innervated adductor pollicis (AP) overpowers the remaining abduction."
+                ],
+                answer: 3,
+                explanation: "D) The stronger adduction torque from the ulnar-innervated adductor pollicis (AP) overpowers the remaining abduction. (Page 44)"
+            },
+            {
+                question: "What is a common function of the hypothenar muscles?",
+                options: [
+                    "To flatten the palm",
+                    "To radially deviate the wrist",
+                    "To raise and 'cup' the ulnar border of the hand",
+                    "To extend the small finger MCP joint"
+                ],
+                answer: 2,
+                explanation: "C) To raise and 'cup' the ulnar border of the hand (Page 45)"
+            },
+            {
+                question: "During resisted abduction of the small finger, which muscle contracts to stabilize the pisiform bone for the abductor digiti minimi (ADM)?",
+                options: [
+                    "Extensor Carpi Ulnaris (ECU)",
+                    "Flexor Carpi Ulnaris (FCU)",
+                    "Pronator Quadratus",
+                    "Palmaris Longus"
+                ],
+                answer: 1,
+                explanation: "B) Flexor Carpi Ulnaris (FCU) (Page 41)"
+            },
+            {
+                question: "An ulnar nerve injury would completely paralyze the hypothenar muscles, leading to:",
+                options: [
+                    "Atrophy and a flattened ulnar palm",
+                    "Hyperextension of the small finger PIP joint",
+                    "Radial deviation of the wrist",
+                    "Increased depth of the distal transverse arch"
+                ],
+                answer: 0,
+                explanation: "A) Atrophy and a flattened ulnar palm (Page 46)"
+            },
+            {
+                question: "The adductor pollicis is described as a dominant muscle at the thumb's CMC joint, producing the greatest combination of which torques?",
+                options: [
+                    "Extension and Abduction",
+                    "Flexion and Adduction",
+                    "Extension and Adduction",
+                    "Flexion and Abduction"
+                ],
+                answer: 1,
+                explanation: "B) Flexion and Adduction (Page 48)"
+            },
+            {
+                question: "The lumbrical muscles pass palmar to which joint(s) and dorsal to which joint(s)?",
+                options: [
+                    "Palmar to MCP; Dorsal to PIP & DIP",
+                    "Palmar to PIP; Dorsal to MCP & DIP",
+                    "Palmar to DIP; Dorsal to MCP & PIP",
+                    "Palmar to CMC; Dorsal to MCP & PIP"
+                ],
+                answer: 0,
+                explanation: "A) Palmar to MCP; Dorsal to PIP & DIP (Page 50)"
+            },
+            {
+                question: "Compared to the interossei, the lumbrical muscles are characterized by the ability to generate:",
+                options: [
+                    "Large force over a short distance",
+                    "Small force over a long distance",
+                    "Large force over a long distance",
+                    "Small force over a short distance"
+                ],
+                answer: 1,
+                explanation: "B) Small force over a long distance (Page 50, 58)"
+            },
+            {
+                question: "The first lumbrical possesses many muscle spindles, suggesting a significant role in:",
+                options: [
+                    "Generating powerful grip force",
+                    "Stabilizing the wrist joint",
+                    "Abducting the index finger",
+                    "Providing sensory feedback during complex movements"
+                ],
+                answer: 3,
+                explanation: "D) Providing sensory feedback during complex movements (Page 51)"
+            },
+            {
+                question: "The primary action of the four Palmar Interossei (PI) muscles at the MCP joints is:",
+                options: [
+                    "Abduction",
+                    "Extension",
+                    "Adduction",
+                    "Flexion"
+                ],
+                answer: 2,
+                explanation: "C) Adduction (Page 54)"
+            },
+            {
+                question: "The primary action of the four Dorsal Interossei (DI) muscles at the MCP joints is:",
+                options: [
+                    "Adduction",
+                    "Abduction",
+                    "Flexion",
+                    "Extension"
+                ],
+                answer: 1,
+                explanation: "B) Abduction (Page 55)"
+            },
+            {
+                question: "Abduction of the fifth MCP joint (small finger) is performed by which muscle?",
+                options: [
+                    "Abductor Digiti Minimi (ADM)",
+                    "Fourth Dorsal Interosseus",
+                    "Opponens Digiti Minimi",
+                    "Third Palmar Interosseus"
+                ],
+                answer: 0,
+                explanation: "A) Abductor Digiti Minimi (ADM) (Page 55)"
+            },
+            {
+                question: "The interossei and ADM provide dynamic stability to the MCP joints by acting as:",
+                options: [
+                    "Primary flexors of the PIP joints",
+                    "Dynamic collateral ligaments",
+                    "Extensors of the DIP joints",
+                    "Synovial sheath lubricators"
+                ],
+                answer: 1,
+                explanation: "B) Dynamic collateral ligaments (Page 56)"
+            },
+            {
+                question: "Which nerve innervates the Dorsal Interossei muscles?",
+                options: [
+                    "Ulnar nerve",
+                    "Median nerve",
+                    "Radial nerve",
+                    "Musculocutaneous nerve"
+                ],
+                answer: 0,
+                explanation: "A) Ulnar nerve (Page 58)"
+            },
+            {
+                question: "The combined action of the intrinsic muscles (lumbricals and interossei) produces which hand position?",
+                options: [
+                    "Extrinsic-plus position (MCP hyperextension, IP flexion)",
+                    "Claw hand position",
+                    "Intrinsic-plus position (MCP flexion, IP extension)",
+                    "Tenodesis position"
+                ],
+                answer: 2,
+                explanation: "C) Intrinsic-plus position (MCP flexion, IP extension) (Page 60)"
+            },
+            {
+                question: "During full finger extension, the greatest resistance usually comes from:",
+                options: [
+                    "Gravity",
+                    "The passive viscoelastic resistance of the stretched extrinsic finger flexors",
+                    "Co-contraction of the interossei",
+                    "Tightness in the extensor retinaculum"
+                ],
+                answer: 1,
+                explanation: "B) The passive viscoelastic resistance of the stretched extrinsic finger flexors (Page 62)"
+            },
+            {
+                question: "In the 'claw hand' deformity associated with an ulnar nerve lesion, what position are the medial fingers held in?",
+                options: [
+                    "MCP flexion and IP extension",
+                    "MCP hyperextension and IP flexion",
+                    "MCP and IP flexion",
+                    "MCP and IP extension"
+                ],
+                answer: 1,
+                explanation: "B) MCP hyperextension and IP flexion (Page 64)"
+            },
+            {
+                question: "During a 'high-powered' finger flexion, which muscle group is described as being essentially inactive?",
+                options: [
+                    "Flexor Digitorum Profundus (FDP)",
+                    "Interossei",
+                    "Lumbricals",
+                    "Flexor Digitorum Superficials (FDS)"
+                ],
+                answer: 2,
+                explanation: "C) Lumbricals (Page 66)"
+            },
+            {
+                question: "Which of the following is NOT a primary function of the hand as an effector organ?",
+                options: [
+                    "Support",
+                    "Manipulation",
+                    "Prehension",
+                    "Proprioception"
+                ],
+                answer: 3,
+                explanation: "D) Proprioception (Page 69)"
+            },
+            {
+                question: "Which type of prehension is described as using all digits and is for stability and large forces, such as when using a hammer?",
+                options: [
+                    "Precision pinch",
+                    "Hook grip",
+                    "Lateral pinch",
+                    "Power grip"
+                ],
+                answer: 3,
+                explanation: "D) Power grip (Page 72)"
+            },
+            {
+                question: "The 'power (key) pinch' or lateral pinch stabilizes an object between the thumb and:",
+                options: [
+                    "The tips of all fingers",
+                    "The palmar surface of the ring and small fingers",
+                    "The lateral border of the index finger",
+                    "The middle and ring fingers"
+                ],
+                answer: 2,
+                explanation: "C) The lateral border of the index finger (Page 73)"
+            },
+            {
+                question: "In a precision grip, the thumb is held in what position?",
+                options: [
+                    "Fully adducted",
+                    "Partially abducted",
+                    "Fully extended",
+                    "Fully opposed"
+                ],
+                answer: 1,
+                explanation: "B) Partially abducted (Page 74)"
+            },
+            {
+                question: "Which prehension type involves the thumb and index finger providing fine control without high power, such as in a tip-to-tip pinch?",
+                options: [
+                    "Power grip",
+                    "Hook grip",
+                    "Precision pinch",
+                    "Lateral pinch"
+                ],
+                answer: 2,
+                explanation: "C) Precision pinch (Page 76)"
+            },
+            {
+                question: "Which grip does NOT involve the thumb and is formed by partially flexed PIP and DIP joints of the fingers?",
+                options: [
+                    "Hook grip",
+                    "Power grip",
+                    "Precision grip",
+                    "Spherical grip"
+                ],
+                answer: 0,
+                explanation: "A) Hook grip (Page 77)"
+            },
+            {
+                question: "A primary destructive aspect of Rheumatoid Arthritis (RA) in the hand is chronic synovitis, which leads to:",
+                options: [
+                    "Increased tensile strength of ligaments",
+                    "Reduced tensile strength of periariticular connective tissues",
+                    "Hypertrophy of muscle tendons",
+                    "Increased bone density"
+                ],
+                answer: 1,
+                explanation: "B) Reduced tensile strength of periariticular connective tissues (Page 79)"
+            },
+            {
+                question: "The 'zigzag deformity' of the thumb in RA typically involves which combination of joint positions?",
+                options: [
+                    "CMC extension, MCP flexion, IP extension",
+                    "CMC flexion and adduction, MCP hyperextension, IP flexion",
+                    "CMC abduction, MCP flexion, IP hyperextension",
+                    "CMC adduction, MCP flexion, IP flexion"
+                ],
+                answer: 1,
+                explanation: "B) CMC flexion and adduction, MCP hyperextension, IP flexion (Page 80)"
+            },
+            {
+                question: "In the thumb zigzag deformity, collapse often starts with instability at which joint?",
+                options: [
+                    "Interphalangeal (IP) joint",
+                    "Metacarpophalangeal (MCP) joint",
+                    "Carpometacarpal (CMC) joint",
+                    "Wrist joint"
+                ],
+                answer: 2,
+                explanation: "C) Carpometacarpal (CMC) joint (Page 80)"
+            },
+            {
+                question: "In RA, palmar dislocation of a finger's MCP joint can collapse which arches of the hand?",
+                options: [
+                    "Only the longitudinal arch",
+                    "Only the transverse arch",
+                    "The carpal arch only",
+                    "Both the longitudinal and transverse arches"
+                ],
+                answer: 3,
+                explanation: "D) Both the longitudinal and transverse arches (Page 83)"
+            },
+            {
+                question: "Which of the following is NOT listed as a factor favoring ulnar drift of the fingers in RA?",
+                options: [
+                    "Force of gravity",
+                    "Asymmetric slope of the metacarpal heads",
+                    "Radial (lateral) line of pull of the extrinsic flexor tendons",
+                    "Ulnar-directed forces from thumb pinching"
+                ],
+                answer: 2,
+                explanation: "C) Radial (lateral) line of pull of the extrinsic flexor tendons (Page 85)"
+            },
+            {
+                question: "Ulnar drift deformity at the MCP joint consists of excessive:",
+                options: [
+                    "Radial deviation and palmar translation",
+                    "Ulnar deviation and ulnar translation of the proximal phalanx",
+                    "Flexion and supination",
+                    "Extension and radial rotation"
+                ],
+                answer: 1,
+                explanation: "B) Ulnar deviation and ulnar translation of the proximal phalanx (Page 86)"
+            },
+            {
+                question: "The 'swan-neck deformity' is characterized by:",
+                options: [
+                    "PIP flexion and DIP hyperextension",
+                    "PIP hyperextension and DIP flexion",
+                    "MCP hyperextension and PIP flexion",
+                    "MCP flexion and DIP hyperextension"
+                ],
+                answer: 1,
+                explanation: "B) PIP hyperextension and DIP flexion (Page 89)"
+            },
+            {
+                question: "In the swan-neck deformity, the DIP joint remains flexed due to increased passive tension in which structure?",
+                options: [
+                    "The stretched Flexor Digitorum Profundus (FDP) tendon",
+                    "The central band of the extensor mechanism",
+                    "The ruptured palmar plate",
+                    "The contracted dorsal interossei"
+                ],
+                answer: 0,
+                explanation: "A) The stretched Flexor Digitorum Profundus (FDP) tendon (Page 90)"
+            },
+            {
+                question: "The 'boutonnière deformity' is characterized by:",
+                options: [
+                    "PIP hyperextension and DIP flexion",
+                    "MCP dislocation and PIP extension",
+                    "MCP flexion and IP extension",
+                    "PIP flexion and DIP hyperextension"
+                ],
+                answer: 3,
+                explanation: "D) PIP flexion and DIP hyperextension (Page 91)"
+            },
+            {
+                question: "In the boutonnière deformity, the central band and triangular ligament rupture, causing the lateral bands to:",
+                options: [
+                    "Slip in a dorsal direction",
+                    "Slip in a radial direction",
+                    "Slip in a palmar direction",
+                    "Fuse with the palmar plate"
+                ],
+                answer: 2,
+                explanation: "C) Slip in a palmar direction (Page 92)"
+            },
+            {
+                question: "In the boutonnière deformity, the DIP joint remains hyperextended due to increased passive tension in which structures?",
+                options: [
+                    "The taut lateral bands",
+                    "The stretched FDS tendon",
+                    "The contracted lumbrical",
+                    "The overstretched palmar plate"
+                ],
+                answer: 0,
+                explanation: "A) The taut lateral bands (Page 92)"
+            },
+            {
+                question: "A key biomechanical factor in the development of palmar MCP dislocation in RA is the 'bowstringing' force of the flexor tendons against weakened:",
+                options: [
+                    "Extensor tendons",
+                    "Synovial sheaths",
+                    "Collateral ligaments and palmar plate",
+                    "Metacarpal heads"
+                ],
+                answer: 2,
+                explanation: "C) Collateral ligaments and palmar plate (Page 84)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 (Hand Muscles, Intrinsic Muscles, and Clinical Conditions).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

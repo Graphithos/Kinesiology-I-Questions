@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 (Hand P1) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 (Hand P1) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 (Hand Osteology and Arthrology)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">50</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">50</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/50</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 50 questions from the PDF)
+        const quizData = [
+            {
+                question: "How many muscles act on the hand?",
+                options: [
+                    "14",
+                    "19",
+                    "29",
+                    "5"
+                ],
+                answer: 2,
+                explanation: "29 (Page 6)"
+            },
+            {
+                question: "What is the collective term for one metacarpal bone and its associated phalanges?",
+                options: [
+                    "A column",
+                    "A ray",
+                    "A segment",
+                    "A chain"
+                ],
+                answer: 1,
+                explanation: "A ray (Page 6)"
+            },
+            {
+                question: "Which finger has only one interphalangeal (IP) joint?",
+                options: [
+                    "Index finger",
+                    "Middle finger",
+                    "Ring finger",
+                    "Thumb"
+                ],
+                answer: 3,
+                explanation: "Thumb (Page 8)"
+            },
+            {
+                question: "The distal wrist crease marks the proximal margin of which structure?",
+                options: [
+                    "Flexor retinaculum",
+                    "Palmar aponeurosis",
+                    "Transverse carpal ligament",
+                    "Extensor hood"
+                ],
+                answer: 2,
+                explanation: "Transverse carpal ligament (Page 10)"
+            },
+            {
+                question: "Which metacarpal is typically the longest?",
+                options: [
+                    "First (thumb)",
+                    "Second (index)",
+                    "Third (middle)",
+                    "Fifth (small)"
+                ],
+                answer: 1,
+                explanation: "Second (index) (Page 13)"
+            },
+            {
+                question: "The \"knuckles\" on the dorsal side of a clenched fist are formed by the heads of which metacarpals?",
+                options: [
+                    "Second through fifth",
+                    "First through fifth",
+                    "First and second only",
+                    "Third and fourth only"
+                ],
+                answer: 0,
+                explanation: "Second through fifth (Page 17)"
+            },
+            {
+                question: "A common site of fracture, particularly for the fifth digit, is the:",
+                options: [
+                    "Metacarpal head",
+                    "Metacarpal base",
+                    "Metacarpal neck",
+                    "Phalangeal tuberosity"
+                ],
+                answer: 2,
+                explanation: "Metacarpal neck (Page 17)"
+            },
+            {
+                question: "The thumb's metacarpal is rotated approximately how many degrees relative to the other digits?",
+                options: [
+                    "45 degrees",
+                    "90 degrees",
+                    "120 degrees",
+                    "180 degrees"
+                ],
+                answer: 1,
+                explanation: "90 degrees (Page 18)"
+            },
+            {
+                question: "How many phalanges are there in total in one hand?",
+                options: [
+                    "12",
+                    "14",
+                    "16",
+                    "19"
+                ],
+                answer: 1,
+                explanation: "14 (Page 21)"
+            },
+            {
+                question: "The rounded tuberosity at the distal end of each distal phalanx serves to:",
+                options: [
+                    "Articulate with the middle phalanx",
+                    "Increase leverage for tendon insertion",
+                    "Anchor the fleshy pulp of the fingertip",
+                    "Provide attachment for the nail bed"
+                ],
+                answer: 2,
+                explanation: "Anchor the fleshy pulp of the fingertip (Page 21)"
+            },
+            {
+                question: "How many integrated arch systems support the natural concavity of the palm?",
+                options: [
+                    "Two",
+                    "Three",
+                    "Four",
+                    "Five"
+                ],
+                answer: 1,
+                explanation: "Three (Page 22)"
+            },
+            {
+                question: "Which arch is described as static and rigid, forming the carpal tunnel?",
+                options: [
+                    "The distal transverse arch",
+                    "The longitudinal arch",
+                    "The oblique arch",
+                    "The proximal transverse arch"
+                ],
+                answer: 3,
+                explanation: "The proximal transverse arch (Page 23)"
+            },
+            {
+                question: "What is the keystone of the proximal transverse arch?",
+                options: [
+                    "The trapezium",
+                    "The hamate",
+                    "The capitate",
+                    "The lunate"
+                ],
+                answer: 2,
+                explanation: "The capitate (Page 23)"
+            },
+            {
+                question: "The sides of the distal transverse arch are:",
+                options: [
+                    "Mobile",
+                    "Static and rigid",
+                    "Formed by the carpal bones",
+                    "Supported by the thumb ray"
+                ],
+                answer: 0,
+                explanation: "Mobile (Page 24)"
+            },
+            {
+                question: "The \"rigid tie-beam\" that joins the two transverse arches is formed by which metacarpals?",
+                options: [
+                    "First and fifth",
+                    "Second and third",
+                    "Third and fourth",
+                    "Fourth and fifth"
+                ],
+                answer: 1,
+                explanation: "Second and third (Page 22)"
+            },
+            {
+                question: "The longitudinal arch of the hand follows the general shape of which rays?",
+                options: [
+                    "First and second",
+                    "Second and third",
+                    "Third and fourth",
+                    "Fourth and fifth"
+                ],
+                answer: 1,
+                explanation: "Second and third (Page 25)"
+            },
+            {
+                question: "Which finger is used as the reference for abduction and adduction movements?",
+                options: [
+                    "Thumb",
+                    "Index finger",
+                    "Middle finger",
+                    "Ring finger"
+                ],
+                answer: 2,
+                explanation: "Middle finger (Page 28)"
+            },
+            {
+                question: "Thumb flexion is defined as the movement of its palmar surface in which plane?",
+                options: [
+                    "Sagittal plane",
+                    "Frontal plane",
+                    "Transverse plane",
+                    "Oblique plane"
+                ],
+                answer: 1,
+                explanation: "Frontal plane (Page 28)"
+            },
+            {
+                question: "The movement of the thumb across the palm, making direct contact with the tip of any finger, is called:",
+                options: [
+                    "Reposition",
+                    "Circumduction",
+                    "Adduction",
+                    "Opposition"
+                ],
+                answer: 3,
+                explanation: "Opposition (Page 28)"
+            },
+            {
+                question: "The movement that returns the thumb from full opposition back to the anatomical position is called:",
+                options: [
+                    "Reposition",
+                    "Extension",
+                    "Abduction",
+                    "Retraction"
+                ],
+                answer: 0,
+                explanation: "Reposition (Page 28)"
+            },
+            {
+                question: "The CMC joints of which digits form a stable, fixed central pillar for the hand?",
+                options: [
+                    "First and fifth",
+                    "Second and third",
+                    "Third and fourth",
+                    "Fourth and fifth"
+                ],
+                answer: 1,
+                explanation: "Second and third (Page 30)"
+            },
+            {
+                question: "Which CMC joints are described as the mobile radial and ulnar borders that can \"fold\" around the central pillar?",
+                options: [
+                    "First, second, and third",
+                    "Second, third, and fourth",
+                    "First, fourth, and fifth",
+                    "Third, fourth, and fifth"
+                ],
+                answer: 2,
+                explanation: "First, fourth, and fifth (Page 30)"
+            },
+            {
+                question: "The base of the fourth metacarpal articulates primarily with which carpal bone?",
+                options: [
+                    "Hamate",
+                    "Trapezoid",
+                    "Capitate",
+                    "Trapezium"
+                ],
+                answer: 0,
+                explanation: "Hamate (Page 32)"
+            },
+            {
+                question: "The increased mobility of the fourth and fifth CMC joints is essential for which action?",
+                options: [
+                    "Power grip",
+                    "A cupping motion of the hand",
+                    "Key pinch",
+                    "Finger extension"
+                ],
+                answer: 1,
+                explanation: "A cupping motion of the hand (Page 33)"
+            },
+            {
+                question: "When unconstrained, the fifth CMC joint can flex and extend an average of how many degrees?",
+                options: [
+                    "About 20 degrees",
+                    "About 28 degrees",
+                    "About 44 degrees",
+                    "About 60 degrees"
+                ],
+                answer: 2,
+                explanation: "About 44 degrees (Page 36)"
+            },
+            {
+                question: "Which ligament of the thumb CMC joint is described as the \"prime stabilizer of the opposed CMC joint\"?",
+                options: [
+                    "Anterior oblique ligament",
+                    "Ulnar collateral ligament",
+                    "Intermetacarpal ligament",
+                    "Radial collateral ligament"
+                ],
+                answer: 3,
+                explanation: "Radial collateral ligament (Page 39)"
+            },
+            {
+                question: "On the trapezium, the longitudinal diameter (palmar-to-dorsal) is generally:",
+                options: [
+                    "Convex",
+                    "Concave",
+                    "Flat",
+                    "Irregular"
+                ],
+                answer: 1,
+                explanation: "Concave (Page 41)"
+            },
+            {
+                question: "On the thumb metacarpal base, the transverse diameter (medial-to-lateral) is generally:",
+                options: [
+                    "Convex",
+                    "Concave",
+                    "Flat",
+                    "Irregular"
+                ],
+                answer: 1,
+                explanation: "Concave (Page 41)"
+            },
+            {
+                question: "The axis of rotation for flexion/extension at the thumb CMC joint passes through which bone?",
+                options: [
+                    "The scaphoid",
+                    "The trapezium",
+                    "The thumb metacarpal",
+                    "The proximal phalanx"
+                ],
+                answer: 1,
+                explanation: "The trapezium (Page 43)"
+            },
+            {
+                question: "During abduction of the thumb CMC joint, the convex articular surface of the metacarpal:",
+                options: [
+                    "Rolls and slides in a palmar direction",
+                    "Rolls dorsal and slides palmar",
+                    "Rolls and slides in a dorsal direction",
+                    "Rolls palmar and slides dorsal"
+                ],
+                answer: 3,
+                explanation: "Rolls palmar and slides dorsal (Page 44)"
+            },
+            {
+                question: "During flexion of the thumb CMC joint, the concave base of the metacarpal rolls and slides in which direction?",
+                options: [
+                    "Radial (lateral) direction",
+                    "Ulnar (medial) direction",
+                    "Palmar direction",
+                    "Dorsal direction"
+                ],
+                answer: 1,
+                explanation: "Ulnar (medial) direction (Page 46)"
+            },
+            {
+                question: "Full opposition of the thumb CMC joint is considered its:",
+                options: [
+                    "Resting position",
+                    "Loose-packed position",
+                    "Close-packed position",
+                    "Open-packed position"
+                ],
+                answer: 2,
+                explanation: "Close-packed position (Page 48)"
+            },
+            {
+                question: "The final phase of thumb opposition involves how many degrees of medial rotation?",
+                options: [
+                    "10 to 20 degrees",
+                    "25 to 35 degrees",
+                    "45 to 60 degrees",
+                    "70 to 80 degrees"
+                ],
+                answer: 2,
+                explanation: "45 to 60 degrees (Page 50)"
+            },
+            {
+                question: "The MCP joints of the fingers are what type of articulation?",
+                options: [
+                    "Ellipsoid (condyloid) joints",
+                    "Hinge joints",
+                    "Saddle joints",
+                    "Plane joints"
+                ],
+                answer: 0,
+                explanation: "Ellipsoid (condyloid) joints (Page 53)"
+            },
+            {
+                question: "What structure is a dense, thick fibrocartilage that strengthens the MCP joints and limits extension?",
+                options: [
+                    "The collateral ligament",
+                    "The palmar plate",
+                    "The dorsal capsule",
+                    "The fibrous digital sheath"
+                ],
+                answer: 1,
+                explanation: "The palmar plate (Page 53)"
+            },
+            {
+                question: "Which finger typically has the greatest range of flexion at the MCP joint?",
+                options: [
+                    "Index finger",
+                    "Middle finger",
+                    "Ring finger",
+                    "Small (fifth) finger"
+                ],
+                answer: 3,
+                explanation: "Small (fifth) finger (Page 56)"
+            },
+            {
+                question: "Abduction and adduction at the MCP joints are greatest in what position?",
+                options: [
+                    "Full flexion",
+                    "Mid-range flexion",
+                    "Full extension",
+                    "It is constant throughout the range"
+                ],
+                answer: 2,
+                explanation: "Full extension (Page 56)"
+            },
+            {
+                question: "The MCP joint of the thumb allows primarily which motion(s)?",
+                options: [
+                    "Flexion and extension only",
+                    "Abduction and adduction only",
+                    "Flexion, extension, abduction, and adduction",
+                    "Opposition and reposition"
+                ],
+                answer: 0,
+                explanation: "Flexion and extension only (Page 63)"
+            },
+            {
+                question: "From full extension, the thumb MCP joint can actively flex about how many degrees?",
+                options: [
+                    "30 degrees",
+                    "45 degrees",
+                    "60 degrees",
+                    "90 degrees"
+                ],
+                answer: 2,
+                explanation: "60 degrees (Page 63)"
+            },
+            {
+                question: "How many degrees of freedom do the proximal interphalangeal (PIP) and distal interphalangeal (DIP) joints have?",
+                options: [
+                    "One (flexion/extension)",
+                    "Two (flexion/extension and abduction/adduction)",
+                    "Three (all planes)",
+                    "They are non-axial joints"
+                ],
+                answer: 0,
+                explanation: "One (flexion/extension) (Page 66)"
+            },
+            {
+                question: "The \"tongue-in-groove\" articulation at the PIP joint helps to:",
+                options: [
+                    "Increase the range of flexion",
+                    "Guide flexion and extension and limit axial rotation",
+                    "Allow for abduction and adduction",
+                    "Provide attachment for the flexor tendons"
+                ],
+                answer: 1,
+                explanation: "Guide flexion and extension and limit axial rotation (Page 66)"
+            },
+            {
+                question: "What is the typical range of flexion for the PIP joints?",
+                options: [
+                    "70-90 degrees",
+                    "100-120 degrees",
+                    "130-150 degrees",
+                    "150-170 degrees"
+                ],
+                answer: 1,
+                explanation: "100-120 degrees (Page 69)"
+            },
+            {
+                question: "The close-packed position for the PIP and DIP joints is:",
+                options: [
+                    "Full flexion",
+                    "Mid-range",
+                    "Full extension",
+                    "Slight flexion"
+                ],
+                answer: 2,
+                explanation: "Full extension (Page 69)"
+            },
+            {
+                question: "During active flexion at the PIP joint, the concave base of the middle phalanx:",
+                options: [
+                    "Rolls and slides in a palmar direction",
+                    "Rolls palmar and slides dorsal",
+                    "Rolls dorsal and slides palmar",
+                    "Spins in place"
+                ],
+                answer: 0,
+                explanation: "Rolls and slides in a palmar direction (Page 69)"
+            },
+            {
+                question: "The collateral ligaments of the MCP joints cross the joint in which direction?",
+                options: [
+                    "A straight lateral direction",
+                    "An oblique dorsal direction",
+                    "A transverse direction",
+                    "An oblique palmar direction"
+                ],
+                answer: 3,
+                explanation: "An oblique palmar direction (Page 53)"
+            },
+            {
+                question: "Which ligament becomes taut at the thumb CMC joint during the \"hitch hiker\" position (full extension)?",
+                options: [
+                    "Anterior oblique ligament",
+                    "Radial collateral ligament",
+                    "Intermetacarpal ligament",
+                    "None of the above"
+                ],
+                answer: 0,
+                explanation: "Anterior oblique ligament (Page 39)"
+            },
+            {
+                question: "At full abduction of a finger MCP joint, which collateral ligament is taut?",
+                options: [
+                    "The collateral ligament on the same side as the movement",
+                    "The collateral ligament on the side opposite the movement",
+                    "Both collateral ligaments are equally taut",
+                    "Neither ligament is taut"
+                ],
+                answer: 1,
+                explanation: "The collateral ligament on the side opposite the movement (Page 62)"
+            },
+            {
+                question: "A lesion in the \"area for hand skills\" anterior to the primary motor area would result in:",
+                options: [
+                    "Motor aphasia",
+                    "Sensory loss",
+                    "Motor apraxia",
+                    "Visual field defect"
+                ],
+                answer: 2,
+                explanation: "Motor apraxia (Page 21)"
+            },
+            {
+                question: "An unhealthy and less-mobile thumb has what effect on overall hand function?",
+                options: [
+                    "No significant effect",
+                    "Reduces the function of the entire hand",
+                    "Only affects precision pinch",
+                    "Improves power grip"
+                ],
+                answer: 1,
+                explanation: "Reduces the function of the entire hand (Page 18)"
+            },
+            {
+                question: "Active flexion at the IP joint of the thumb is approximately?",
+                options: [
+                    "100-120 degrees",
+                    "10-15 degrees",
+                    "90 degrees",
+                    "70 degrees"
+                ],
+                answer: 3,
+                explanation: "70 degrees (Page 38)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 (Hand Osteology and Arthrology).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

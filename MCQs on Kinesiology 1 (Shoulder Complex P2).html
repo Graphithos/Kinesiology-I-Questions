@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 Lecture No. 2 Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 Lecture No. 2 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 Lecture No. 2</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 30 questions from the PDF)
+        const quizData = [
+            {
+                question: "What type of joint is the scapulothoracic joint?",
+                options: [
+                    "Diarthrodial synovial joint",
+                    "Fibrous syndesmosis",
+                    "A true anatomical joint with a joint capsule",
+                    "A functional articulation with no direct osseous connection"
+                ],
+                answer: 3,
+                explanation: "A functional articulation with no direct osseous connection (Page 67)"
+            },
+            {
+                question: "A weak serratus anterior muscle can lead to which abnormal scapular motion during deltoid contraction?",
+                options: [
+                    "Excessive Retraction",
+                    "Downward Rotation",
+                    "Anterior Tilt",
+                    "Elevation"
+                ],
+                answer: 1,
+                explanation: "Downward Rotation (Page 79)"
+            },
+            {
+                question: "Which muscle group is primarily responsible for scapular retraction?",
+                options: [
+                    "Serratus Anterior and Pectoralis Minor",
+                    "Middle Trapezius and Rhomboids",
+                    "Upper Trapezius and Levator Scapulae",
+                    "Lower Trapezius and Latissimus Dorsi"
+                ],
+                answer: 1,
+                explanation: "Middle Trapezius and Rhomboids (Page 77)"
+            },
+            {
+                question: "Protraction of the scapulothoracic joint is primarily accomplished by which muscle?",
+                options: [
+                    "Rhomboids",
+                    "Levator Scapulae",
+                    "Serratus Anterior",
+                    "Lower Trapezius"
+                ],
+                answer: 2,
+                explanation: "Serratus Anterior (Page 78)"
+            },
+            {
+                question: "What is the approximate angle of inclination of the humeral head relative to its shaft in the frontal plane?",
+                options: [
+                    "90 degrees",
+                    "115 degrees",
+                    "135 degrees",
+                    "180 degrees"
+                ],
+                answer: 2,
+                explanation: "135 degrees (Page 88)"
+            },
+            {
+                question: "The glenoid fossa is characterized as:",
+                options: [
+                    "Deep, providing significant bony stability",
+                    "Having a diameter roughly equal to the humeral head",
+                    "Shallow, with about one-third the diameter of the humeral head",
+                    "Having articular cartilage thickest in its center"
+                ],
+                answer: 2,
+                explanation: "Shallow, with about one-third the diameter of the humeral head (Page 89)"
+            },
+            {
+                question: "The close-packed position of the glenohumeral (G-H) joint is:",
+                options: [
+                    "Full adduction and internal rotation",
+                    "55 degrees of semi-abduction and 30 degrees of horizontal adduction",
+                    "90 degrees of G-H abduction and full external rotation",
+                    "When the arm is by the side"
+                ],
+                answer: 2,
+                explanation: "90 degrees of G-H abduction and full external rotation (Page 113)"
+            },
+            {
+                question: "The open-packed position of the glenohumeral joint is traditionally cited as:",
+                options: [
+                    "Full abduction and external rotation",
+                    "55 degrees of semi-abduction and 30 degrees of horizontal adduction",
+                    "Full flexion and internal rotation",
+                    "90 degrees of abduction and neutral rotation"
+                ],
+                answer: 1,
+                explanation: "55 degrees of semi-abduction and 30 degrees of horizontal adduction (Page 114)"
+            },
+            {
+                question: "According to Cyriax, the capsular pattern for the glenohumeral joint (most notably in adhesive capsulitis) is:",
+                options: [
+                    "Abduction is most limited",
+                    "Internal rotation is most limited",
+                    "External rotation is most limited, followed by abduction, then internal rotation",
+                    "Flexion and extension are equally limited"
+                ],
+                answer: 2,
+                explanation: "External rotation is most limited, followed by abduction, then internal rotation (Page 112)"
+            },
+            {
+                question: "The glenoid labrum serves to:",
+                options: [
+                    "Increase the depth of the fossa and enhance stability",
+                    "Produce synovial fluid for lubrication",
+                    "Provide the primary blood supply to the humeral head",
+                    "Serve as the main attachment for the rotator cuff tendons"
+                ],
+                answer: 0,
+                explanation: "Increase the depth of the fossa and enhance stability (Page 100)"
+            },
+            {
+                question: "Which ligament of the glenohumeral joint resists inferior translation in an adducted or resting arm?",
+                options: [
+                    "Middle Glenohumeral Ligament",
+                    "Inferior Glenohumeral Ligament",
+                    "Superior Glenohumeral Ligament",
+                    "None of the above"
+                ],
+                answer: 2,
+                explanation: "Superior Glenohumeral Ligament (Page 94)"
+            },
+            {
+                question: "The Middle Glenohumeral Ligament is noted to be absent in what percentage of the population?",
+                options: [
+                    "10%",
+                    "30%",
+                    "50%",
+                    "70%"
+                ],
+                answer: 1,
+                explanation: "30% (Page 96)"
+            },
+            {
+                question: "Which glenohumeral ligament is a primary restraint to anterior translation when the arm is abducted to 90 degrees and externally rotated?",
+                options: [
+                    "Superior Glenohumeral Ligament",
+                    "Middle Glenohumeral Ligament",
+                    "Anterior band of the Inferior Glenohumeral Ligament",
+                    "Coracohumeral Ligament"
+                ],
+                answer: 2,
+                explanation: "Anterior band of the Inferior Glenohumeral Ligament (Page 98)"
+            },
+            {
+                question: "The primary function of the coracohumeral ligament is to resist:",
+                options: [
+                    "Anterior translation in 90 degrees of abduction",
+                    "Inferior translation and assist with external rotation restraint",
+                    "Posterior translation during flexion",
+                    "Superior translation during abduction"
+                ],
+                answer: 1,
+                explanation: "Inferior translation and assist with external rotation restraint (Page 95, 98)"
+            },
+            {
+                question: "The subacromial bursa is located between the humeral head and which structure?",
+                options: [
+                    "Coracoid process",
+                    "Glenoid fossa",
+                    "Underside of the acromion",
+                    "Clavicle"
+                ],
+                answer: 2,
+                explanation: "Underside of the acromion (Page 99)"
+            },
+            {
+                question: "What is the typical range of motion for glenohumeral lateral rotation?",
+                options: [
+                    "45 degrees",
+                    "60 degrees",
+                    "90 degrees",
+                    "120 degrees"
+                ],
+                answer: 2,
+                explanation: "90 degrees (Page 116)"
+            },
+            {
+                question: "Which muscle is the primary initiator of glenohumeral abduction?",
+                options: [
+                    "Middle Deltoid",
+                    "Supraspinatus",
+                    "Subscapularis",
+                    "Biceps Brachii"
+                ],
+                answer: 1,
+                explanation: "Supraspinatus (Page 120)"
+            },
+            {
+                question: "The middle deltoid is most active during which phase of glenohumeral abduction?",
+                options: [
+                    "Initiation (0-30 degrees)",
+                    "0-90 degrees",
+                    "90-180 degrees",
+                    "It is equally active throughout the entire range"
+                ],
+                answer: 2,
+                explanation: "90-180 degrees (Page 120)"
+            },
+            {
+                question: "Which of the following is a primary adductor of the glenohumeral joint?",
+                options: [
+                    "Supraspinatus",
+                    "Middle Deltoid",
+                    "Latissimus Dorsi",
+                    "Coracobrachialis"
+                ],
+                answer: 2,
+                explanation: "Latissimus Dorsi (Page 121)"
+            },
+            {
+                question: "The prime movers for glenohumeral flexion are the anterior deltoid and which portion of the pectoralis major?",
+                options: [
+                    "Sternal portion",
+                    "Abdominal portion",
+                    "Costal portion",
+                    "Clavicular portion"
+                ],
+                answer: 3,
+                explanation: "Clavicular portion (Page 118)"
+            },
+            {
+                question: "Which muscle is the primary lateral rotator of the glenohumeral joint?",
+                options: [
+                    "Subscapularis",
+                    "Teres Major",
+                    "Infraspinatus",
+                    "Pectoralis Major"
+                ],
+                answer: 2,
+                explanation: "Infraspinatus (Page 123)"
+            },
+            {
+                question: "The primary medial rotator of the glenohumeral joint is the:",
+                options: [
+                    "Subscapularis",
+                    "Infraspinatus",
+                    "Teres Minor",
+                    "Posterior Deltoid"
+                ],
+                answer: 0,
+                explanation: "Subscapularis (Page 122)"
+            },
+            {
+                question: "Horizontal adduction at the glenohumeral joint is primarily performed by muscles located:",
+                options: [
+                    "Anterior to the joint axis",
+                    "Posterior to the joint axis",
+                    "Superior to the joint axis",
+                    "Inferior to the joint axis"
+                ],
+                answer: 0,
+                explanation: "Anterior to the joint axis (Page 124)"
+            },
+            {
+                question: "A key function of the rotator cuff muscles as a group is to:",
+                options: [
+                    "Provide the primary power for shoulder elevation",
+                    "Create superior shear to initiate abduction",
+                    "Provide dynamic stabilization and compression of the humeral head",
+                    "Act as the main antagonists to the deltoid"
+                ],
+                answer: 2,
+                explanation: "Provide dynamic stabilization and compression of the humeral head (Page 125, 159)"
+            },
+            {
+                question: "During glenohumeral abduction, what arthrokinematic motion must accompany the 'roll' of the humeral head to prevent impingement?",
+                options: [
+                    "Anterior slide",
+                    "Superior slide",
+                    "Inferior slide",
+                    "Posterior slide"
+                ],
+                answer: 2,
+                explanation: "Inferior slide (Page 172)"
+            },
+            {
+                question: "A lack of the inferior 'slide' during glenohumeral abduction would likely result in:",
+                options: [
+                    "Increased joint congruence",
+                    "Impingement of subacromial structures",
+                    "Anterior dislocation of the humeral head",
+                    "Enhanced range of motion"
+                ],
+                answer: 1,
+                explanation: "Impingement of subacromial structures (Page 172)"
+            },
+            {
+                question: "In conditions with selected capsular hypomobility, which motion is mostly limited?",
+                options: [
+                    "Internal rotation",
+                    "External rotation",
+                    "Abduction",
+                    "Flexion"
+                ],
+                answer: 0,
+                explanation: "Internal rotation (Page 112)"
+            },
+            {
+                question: "The glenoid labrum increases the depth by_____, and increases tangential stability by_____.",
+                options: [
+                    "20%; 50%",
+                    "50%; 20%",
+                    "70%; 50%",
+                    "40%; 50%"
+                ],
+                answer: 1,
+                explanation: "50%; 20% (Page 100)"
+            },
+            {
+                question: "Which ligament resists Abduction and internal rotation?",
+                options: [
+                    "Coracohumeral ligament",
+                    "Superior glenohumeral ligament",
+                    "Inferior Glenohumeral ligament (posterior band)",
+                    "Middle glenohumeral ligament"
+                ],
+                answer: 2,
+                explanation: "Inferior glenohumeral ligament (Page 98)"
+            },
+            {
+                question: "Which of the following statements is TRUE:",
+                options: [
+                    "The joint capsule of the glenohumeral joint is thick",
+                    "Surface area of the joint capsule is 2 times that of the area of the head of humerus",
+                    "The superior glenohumeral ligament resists superior translation in rest",
+                    "None of the above"
+                ],
+                answer: 1,
+                explanation: "Surface area of the joint capsule is 2 times that of the area of the head of humerus (Page 172)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 Lecture No. 2.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('load', initQuiz);
+    </script>
+</body>
+</html>

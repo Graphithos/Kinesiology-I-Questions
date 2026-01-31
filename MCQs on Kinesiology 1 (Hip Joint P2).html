@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 (Hip Joint P2) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 (Hip Joint P2) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of hip joint kinematics, muscle function, and clinical assessment</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">40</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">40</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/40</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (40 questions from the PDF)
+        const quizData = [
+            {
+                question: "In an open kinematic chain of the hip, which body segment typically follows the motion of the pelvis?",
+                options: [
+                    "The head and trunk",
+                    "The contralateral lower limb",
+                    "The supporting foot",
+                    "The lumbar spine remains fixed"
+                ],
+                answer: 0,
+                explanation: "A) The head and trunk (Page 60)"
+            },
+            {
+                question: "What is the 'first line of defense' in both open and closed kinematic chains of the hip joint?",
+                options: [
+                    "The hip capsule",
+                    "The lumbar spine",
+                    "The hip ligaments",
+                    "The abdominal muscles"
+                ],
+                answer: 1,
+                explanation: "B) The lumbar spine (Page 60)"
+            },
+            {
+                question: "During the normal lumbo-pelvic rhythm for trunk flexion, what is the typical sequence of movement?",
+                options: [
+                    "Hip flexion, then anterior pelvic tilt, then lumbar flexion",
+                    "Anterior pelvic tilt, then hip flexion, then lumbar flexion",
+                    "Flexion of the lumbar spine, then anterior pelvic tilt, then hip flexion",
+                    "Simultaneous flexion of all segments"
+                ],
+                answer: 2,
+                explanation: "C) Flexion of the lumbar spine, then anterior pelvic tilt, then hip flexion (Page 68)"
+            },
+            {
+                question: "A 'contradirectional' lumbo-pelvic rhythm is described as when the lumbar spine and pelvis rotate:",
+                options: [
+                    "In the same direction",
+                    "In opposite directions",
+                    "Sequentially, not simultaneously",
+                    "Only in the sagittal plane"
+                ],
+                answer: 1,
+                explanation: "B) In opposite directions (Page 72)"
+            },
+            {
+                question: "With the knee flexed, what is the average range of hip flexion?",
+                options: [
+                    "90 degrees",
+                    "100 degrees",
+                    "120 degrees",
+                    "140 degrees"
+                ],
+                answer: 2,
+                explanation: "C) 120 degrees (Page 61)"
+            },
+            {
+                question: "Full hip flexion with the knee flexed slackens the primary capsular ligaments but stretches which structure?",
+                options: [
+                    "The iliofemoral ligament",
+                    "The ischiofemoral ligament",
+                    "The rectus femoris",
+                    "The inferior capsule and gluteus maximus"
+                ],
+                answer: 3,
+                explanation: "D) The inferior capsule and gluteus maximus (Page 61)"
+            },
+            {
+                question: "The average range of hip extension beyond the neutral position is approximately:",
+                options: [
+                    "10 degrees",
+                    "20 degrees",
+                    "30 degrees",
+                    "45 degrees"
+                ],
+                answer: 1,
+                explanation: "B) 20 degrees (Page 62)"
+            },
+            {
+                question: "Which structure is identified as the primary limiter of full hip extension when the knee is fully flexed?",
+                options: [
+                    "The rectus femoris",
+                    "The iliofemoral ligament",
+                    "The hamstrings",
+                    "The gluteus maximus"
+                ],
+                answer: 0,
+                explanation: "A) The rectus femoris (Page 62)"
+            },
+            {
+                question: "The primary passive restraint limiting hip abduction is the:",
+                options: [
+                    "Iliofemoral ligament",
+                    "Pubofemoral ligament",
+                    "Ischiofemoral ligament",
+                    "Ligamentum teres"
+                ],
+                answer: 1,
+                explanation: "B) Pubofemoral ligament (Page 64)"
+            },
+            {
+                question: "On average, how many degrees does the hip internally rotate from neutral when in extension?",
+                options: [
+                    "25 degrees",
+                    "35 degrees",
+                    "45 degrees",
+                    "55 degrees"
+                ],
+                answer: 1,
+                explanation: "B) 35 degrees (Page 66)"
+            },
+            {
+                question: "Excessive tension in which structure can limit full external rotation of the extended hip?",
+                options: [
+                    "The pubofemoral ligament",
+                    "The lateral fasciculus of the iliofemoral ligament",
+                    "The ischiofemoral ligament",
+                    "Both A and B"
+                ],
+                answer: 3,
+                explanation: "D) Both A and B (Page 66)"
+            },
+            {
+                question: "Anterior pelvic tilt in sitting (pelvic-on-femoral motion) results in hip:",
+                options: [
+                    "Extension",
+                    "Abduction",
+                    "Internal rotation",
+                    "Flexion"
+                ],
+                answer: 3,
+                explanation: "D) Flexion (Page 73)"
+            },
+            {
+                question: "While sitting with 90° of hip flexion, about how many degrees of additional pelvic-on-femoral hip flexion (anterior tilt) is typically available before lumbar extension limits movement?",
+                options: [
+                    "15 degrees",
+                    "30 degrees",
+                    "45 degrees",
+                    "60 degrees"
+                ],
+                answer: 1,
+                explanation: "B) 30 degrees (Page 74)"
+            },
+            {
+                question: "Tightness in which muscle group could theoretically limit the extreme of an anterior pelvic tilt?",
+                options: [
+                    "Hip extensors (e.g., hamstrings)",
+                    "Hip flexors (e.g., iliopsoas)",
+                    "Hip adductors",
+                    "None of the above"
+                ],
+                answer: 0,
+                explanation: "A) Hip extensors (e.g., hamstrings) (Page 74)"
+            },
+            {
+                question: "In the frontal plane, abduction of the support hip (pelvic-on-femoral) occurs by:",
+                options: [
+                    "Dropping the iliac crest on the support side",
+                    "Rotating the pelvis forward on the support side",
+                    "Raising or 'hiking' the iliac crest on the nonsupport side",
+                    "Posteriorly tilting the pelvis"
+                ],
+                answer: 2,
+                explanation: "C) Raising or 'hiking' the iliac crest on the nonsupport side (Page 76)"
+            },
+            {
+                question: "Internal rotation of the support hip (pelvic-on-femoral) in the horizontal plane occurs as the iliac crest on the nonsupport side rotates:",
+                options: [
+                    "Backward",
+                    "Forward",
+                    "Downward",
+                    "Upward"
+                ],
+                answer: 1,
+                explanation: "B) Forward (Page 78)"
+            },
+            {
+                question: "Which of the following is a primary hip flexor muscle?",
+                options: [
+                    "Iliopsoas",
+                    "Gluteus maximus",
+                    "Gluteus medius",
+                    "Piriformis"
+                ],
+                answer: 0,
+                explanation: "A) Iliopsoas (Page 80)"
+            },
+            {
+                question: "Which muscle is categorized as both a hip flexor and an adductor?",
+                options: [
+                    "Sartorius",
+                    "Rectus femoris",
+                    "Pectineus",
+                    "Tensor fasciae latae"
+                ],
+                answer: 2,
+                explanation: "C) Pectineus (Page 80)"
+            },
+            {
+                question: "The primary hip abductor muscles are:",
+                options: [
+                    "Gluteus maximus and sartorius",
+                    "Tensor fasciae latae and sartorius",
+                    "Piriformis and obturator internus",
+                    "Gluteus medius and minimus"
+                ],
+                answer: 3,
+                explanation: "D) Gluteus medius and minimus (Page 80)"
+            },
+            {
+                question: "The 'reverse action' of the latissimus dorsi during a faulty hip extension test suggests compensation for poor stabilization of which region?",
+                options: [
+                    "The knee",
+                    "The scapula",
+                    "The spine",
+                    "The ankle"
+                ],
+                answer: 2,
+                explanation: "C) The spine (Page 106)"
+            },
+            {
+                question: "The Modified Thomas test is used to assess the length of which muscle group?",
+                options: [
+                    "Hip extensors (hamstrings/gluteus maximus)",
+                    "Hip flexors (iliopsoas/rectus femoris/TFL)",
+                    "Hip adductors",
+                    "Hip lateral rotators"
+                ],
+                answer: 1,
+                explanation: "B) Hip flexors (iliopsoas/rectus femoris/TFL) (Page 86, 87)"
+            },
+            {
+                question: "During the Modified Thomas test, prominence of the patellar groove suggests tightness in which specific muscle?",
+                options: [
+                    "Rectus femoris",
+                    "Iliopsoas",
+                    "Tensor fasciae latae (TFL)",
+                    "Sartorius"
+                ],
+                answer: 0,
+                explanation: "A) Rectus femoris (Page 87)"
+            },
+            {
+                question: "The Straight-Leg Raise test is primarily a test for the length of which muscle group?",
+                options: [
+                    "Hip flexors",
+                    "Hamstrings",
+                    "Gastrocnemius",
+                    "Gluteus maximus"
+                ],
+                answer: 1,
+                explanation: "B) Hamstrings (Page 93)"
+            },
+            {
+                question: "The Prone Hip Extension test is used to analyze:",
+                options: [
+                    "Hip flexion strength",
+                    "The recruitment pattern of hip extensors and associated stabilizers",
+                    "Acetabular labral integrity",
+                    "Femoral anteversion"
+                ],
+                answer: 1,
+                explanation: "B) The recruitment pattern of hip extensors and associated stabilizers (Page 98)"
+            },
+            {
+                question: "According to Janda, what is the normal sequence of muscle activation during the prone hip extension test?",
+                options: [
+                    "Hamstrings, then gluteus maximus, then contralateral erector spinae",
+                    "Gluteus maximus, then hamstrings, then erector spinae",
+                    "Erector spinae, then gluteus maximus, then hamstrings",
+                    "Simultaneous activation of all muscles"
+                ],
+                answer: 0,
+                explanation: "A) Hamstrings, then gluteus maximus, then contralateral erector spinae (Page 100)"
+            },
+            {
+                question: "The most common faulty pattern during the prone hip extension test is characterized by:",
+                options: [
+                    "Overactivation of the gluteus maximus and underactivation of the hamstrings",
+                    "Overactivation of the hamstrings and erector spinae with delayed/absent gluteus maximus",
+                    "Initiation of movement by the abdominal muscles",
+                    "A posterior pelvic tilt during leg lift"
+                ],
+                answer: 1,
+                explanation: "B) Overactivation of the hamstrings and erector spinae with delayed/absent gluteus maximus (Page 102)"
+            },
+            {
+                question: "A positive finding during the prone hip extension test is often associated with observable hypertrophy in which muscles during postural analysis?",
+                options: [
+                    "Gluteus maximus and abdominal muscles",
+                    "Quadriceps and hip flexors",
+                    "Gluteus medius and tensor fasciae latae",
+                    "Hamstrings and thoracolumbar extensors"
+                ],
+                answer: 3,
+                explanation: "D) Hamstrings and thoracolumbar extensors (Page 104)"
+            },
+            {
+                question: "What is the primary predictor of walking ability, physical performance, and balance in the elderly?",
+                options: [
+                    "Hip flexor strength",
+                    "Knee extensor strength",
+                    "Hip extensor strength",
+                    "Ankle dorsiflexor strength"
+                ],
+                answer: 2,
+                explanation: "C) Hip extensor strength (Page 96)"
+            },
+            {
+                question: "Janda's 'Layer Syndrome' is characterized by weakness in lower scapular stabilizers, lumbosacral erectors, and gluteus maximus, combined with tightness in cervical erectors, upper trapezius, levator scapulae, thoracolumbar erectors, and:",
+                options: [
+                    "Quadriceps",
+                    "Hamstrings",
+                    "Hip adductors",
+                    "Calf muscles"
+                ],
+                answer: 1,
+                explanation: "B) Hamstrings (Page 107, 110)"
+            },
+            {
+                question: "If a patient has limited hip flexion, the lumbo-pelvic rhythm during trunk flexion will demonstrate:",
+                options: [
+                    "Excessive lumbar flexion",
+                    "Excessive hip flexion",
+                    "A normal sequence",
+                    "Limited lumbar flexion"
+                ],
+                answer: 0,
+                explanation: "A) Excessive lumbar flexion (Page 69, 71)"
+            },
+            {
+                question: "If a patient has limited lumbar flexion, the lumbo-pelvic rhythm during trunk flexion will demonstrate:",
+                options: [
+                    "Excessive lumbar flexion",
+                    "Excessive hip flexion",
+                    "A normal sequence",
+                    "Limited hip flexion"
+                ],
+                answer: 1,
+                explanation: "B) Excessive hip flexion (Page 69, 71)"
+            },
+            {
+                question: "During the last phase of trunk extension in the normal lumbo-pelvic rhythm, what happens to muscle activity?",
+                options: [
+                    "It increases in the hamstrings",
+                    "It increases in the gluteus maximus",
+                    "It is reduced",
+                    "It shifts to the abdominal muscles"
+                ],
+                answer: 2,
+                explanation: "C) It is reduced (Page 70)"
+            },
+            {
+                question: "A faulty hip extension pattern that results in an anterior pelvic tilt and lumbar hyperlordosis increases mechanical stress on which structure primarily?",
+                options: [
+                    "The knee joint",
+                    "The lumbar spine",
+                    "The sacroiliac joint",
+                    "The hip joint capsule"
+                ],
+                answer: 1,
+                explanation: "B) The lumbar spine (Page 104)"
+            },
+            {
+                question: "Increased activity of the upper trapezius during the prone hip extension test is considered a sign of:",
+                options: [
+                    "Excellent core stability",
+                    "Normal muscle recruitment",
+                    "Poor prognosis",
+                    "Tight hamstrings"
+                ],
+                answer: 2,
+                explanation: "C) Poor prognosis (Page 106)"
+            },
+            {
+                question: "Which muscle performs a combination of hip flexion, abduction, and lateral rotation?",
+                options: [
+                    "Pectineus",
+                    "Sartorius",
+                    "Rectus femoris",
+                    "Gracilis"
+                ],
+                answer: 1,
+                explanation: "B) Sartorius (Page 84)"
+            },
+            {
+                question: "The tensor fasciae latae (TFL) has which combined action at the hip?",
+                options: [
+                    "Flexion and adduction",
+                    "Extension and lateral rotation",
+                    "Adduction and extension",
+                    "Flexion and abduction"
+                ],
+                answer: 3,
+                explanation: "D) Flexion and abduction (Page 85)"
+            },
+            {
+                question: "Delayed onset of which muscle is associated with anterior hip pain?",
+                options: [
+                    "Iliopsoas",
+                    "Gluteus maximus",
+                    "Rectus femoris",
+                    "Gluteus medius"
+                ],
+                answer: 1,
+                explanation: "B) Gluteus maximus (Page 109)"
+            },
+            {
+                question: "The 'feed-forward mechanism' in the context of hip extension refers to the anticipatory stabilizing role of which muscles?",
+                options: [
+                    "Abdominal muscles and lumbar erectors",
+                    "Hip extensors and flexors",
+                    "Scapular stabilizers and cervical erectors",
+                    "Hamstrings and gluteus maximus"
+                ],
+                answer: 0,
+                explanation: "A) Abdominal muscles and lumbar erectors (Page 109)"
+            },
+            {
+                question: "An exercise to improve gluteus maximus recruitment while controlling the lumbo pelvic spine in neutral involves prone hip extension over a pillow with contraction of which muscles to control lumbo pelvic spine position?",
+                options: [
+                    "Hamstrings",
+                    "Quadriceps",
+                    "Upper trapezius",
+                    "Transversus abdominis (TTA)"
+                ],
+                answer: 3,
+                explanation: "D) Transversus abdominis (TTA) (Page 111)"
+            },
+            {
+                question: "The adductor muscle length test can be used to help differentiate between tightness in one-joint adductors versus two-joint adductors by changing the position of which other joint?",
+                options: [
+                    "The ankle",
+                    "The lumbar spine",
+                    "The knee",
+                    "The opposite hip"
+                ],
+                answer: 2,
+                explanation: "C) The knee (Page 118)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of hip joint kinematics and clinical assessment.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 Lecture No. 1 Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+        .author {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .question-number {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: #f1f8ff;
+            border-color: #a3d0fd;
+        }
+        .option.selected {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+        }
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .score-value {
+            font-size: 48px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: #2ecc71;
+        }
+        .restart-btn:hover {
+            background: #27ae60;
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: #f39c12;
+        }
+        .review-btn:hover {
+            background: #e67e22;
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            background: white;
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: #28a745;
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 Lecture No. 1 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 Lecture No. 1</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the primary function of the shoulder girdle?",
+                options: [
+                    "To provide a rigid and immobile base for the trunk.",
+                    "To provide a highly mobile yet stable base for the hand.",
+                    "To absorb shock from the lower limbs.",
+                    "To protect the thoracic cavity."
+                ],
+                answer: 1,
+                explanation: "To provide a highly mobile yet stable base for the hand. (Page 119)"
+            },
+            {
+                question: "Which of the following is classified as a \"true joint\" of the shoulder complex?",
+                options: [
+                    "Scapulothoracic articulation",
+                    "Coracoacromial arch",
+                    "Sternoclavicular joint",
+                    "Subacromial space"
+                ],
+                answer: 2,
+                explanation: "Sternoclavicular joint (Page 120)"
+            },
+            {
+                question: "What type of joint is the Sternoclavicular (S-C) joint?",
+                options: [
+                    "Hinge joint",
+                    "Saddle (Sellar) joint",
+                    "Pivot joint",
+                    "Ball and socket joint"
+                ],
+                answer: 1,
+                explanation: "Saddle (Sellar) joint (Page 125)"
+            },
+            {
+                question: "The S-C joint is a:",
+                options: [
+                    "Blaxial joint",
+                    "Uniaxial joint",
+                    "Triaxial joint",
+                    "Nonaxial joint"
+                ],
+                answer: 0,
+                explanation: "Blaxial joint (Page 125)"
+            },
+            {
+                question: "The S-C joint articulates with the manubrium of the sternum and the cartilage of which rib?",
+                options: [
+                    "1st rib",
+                    "2nd rib",
+                    "7th rib",
+                    "It does not articulate with a rib."
+                ],
+                answer: 0,
+                explanation: "1st rib (Page 126)"
+            },
+            {
+                question: "Which structure in the S-C joint improves congruence and acts as a shock absorber?",
+                options: [
+                    "Costoclavicular ligament",
+                    "Articular disc",
+                    "Sternoclavicular ligament",
+                    "Joint capsule"
+                ],
+                answer: 1,
+                explanation: "Articular disc (Page 126)"
+            },
+            {
+                question: "Which ligament is the primary restraint of the S-C joint, resisting upward and posterior motion of the clavicle?",
+                options: [
+                    "Interclavicular ligament",
+                    "Sternoclavicular ligament",
+                    "Costoclavicular ligament",
+                    "Coracoclavicular ligament"
+                ],
+                answer: 2,
+                explanation: "Costoclavicular ligament (Page 126)"
+            },
+            {
+                question: "The anterior fibers of the Sternoclavicular ligament primarily resist which motion?",
+                options: [
+                    "Anterior motion",
+                    "Posterior motion",
+                    "Superior motion",
+                    "Inferior motion"
+                ],
+                answer: 1,
+                explanation: "Posterior motion (Page 128)"
+            },
+            {
+                question: "What is the approximate range of motion for elevation at the S-C joint?",
+                options: [
+                    "10-15°",
+                    "15-30°",
+                    "35-45°",
+                    "50-60°"
+                ],
+                answer: 2,
+                explanation: "35-45° (Page 127)"
+            },
+            {
+                question: "What is the approximate range for protraction and retraction at the S-C joint?",
+                options: [
+                    "5-10° in each direction",
+                    "15-30° in each direction",
+                    "35-45° in each direction",
+                    "50-60° in each direction"
+                ],
+                answer: 1,
+                explanation: "15-30° in each direction (Page 128)"
+            },
+            {
+                question: "Axial (posterior) rotation of the clavicle at the S-C joint occurs during which shoulder movements?",
+                options: [
+                    "Extension or adduction",
+                    "Horizontal adduction only",
+                    "Flexion or abduction",
+                    "It does not rotate."
+                ],
+                answer: 2,
+                explanation: "Flexion or abduction (Page 128)"
+            },
+            {
+                question: "What is the close-packed position of the S-C joint?",
+                options: [
+                    "Arm by the side",
+                    "Maximum arm elevation and protraction",
+                    "Maximum arm depression and retraction",
+                    "90 degrees of shoulder abduction"
+                ],
+                answer: 1,
+                explanation: "Maximum arm elevation and protraction (Page 41 in first lecture pdf)"
+            },
+            {
+                question: "The capsular pattern of the S-C joint is characterized by pain at:",
+                options: [
+                    "Full arm extension and internal rotation",
+                    "Full arm elevation and horizontal adduction",
+                    "Full arm depression and horizontal abduction",
+                    "Mid-range of all motions"
+                ],
+                answer: 1,
+                explanation: "Full arm elevation and horizontal adduction (Page 43 in first lecture pdf)"
+            },
+            {
+                question: "What type of joint is the Acromioclavicular (A-C) joint?",
+                options: [
+                    "Saddle joint",
+                    "Hinge joint",
+                    "Gliding/Plane joint",
+                    "Ball and socket joint"
+                ],
+                answer: 2,
+                explanation: "Gliding/Plane joint (Page 129)"
+            },
+            {
+                question: "The A-C joint is classified as a:",
+                options: [
+                    "Uniaxial joint",
+                    "Blaxial joint",
+                    "Triaxial joint",
+                    "Nonaxial joint"
+                ],
+                answer: 3,
+                explanation: "Nonaxial joint (Page 47 in first lecture pdf)"
+            },
+            {
+                question: "The clavicle is deviated approximately how many degrees posterior to the frontal plane at the A-C joint?",
+                options: [
+                    "10°",
+                    "20°",
+                    "30°",
+                    "40°"
+                ],
+                answer: 1,
+                explanation: "20° (Page 121)"
+            },
+            {
+                question: "Which ligament is described as the strongest in the shoulder and the primary stabilizer of the A-C joint?",
+                options: [
+                    "Acromioclavicular ligament",
+                    "Coracocaronial ligament",
+                    "Coracoclavicular ligament",
+                    "Costoclavicular ligament"
+                ],
+                answer: 2,
+                explanation: "Coracoclavicular ligament (Page 130)"
+            },
+            {
+                question: "The Coracoclavicular ligament is composed of which two ligaments?",
+                options: [
+                    "Anterior and Posterior Sternoclavicular",
+                    "Trapezoid and Conoid",
+                    "Superior and Inferior Acromioclavicular",
+                    "Medial and Lateral Costoclavicular"
+                ],
+                answer: 1,
+                explanation: "Trapezoid and Conoid (Page 129)"
+            },
+            {
+                question: "The Acromioclavicular (A-C) ligament primarily resists which motions?",
+                options: [
+                    "Axial rotation and posterior motion",
+                    "Superior and inferior translation",
+                    "Anterior tilt and protraction",
+                    "Elevation and depression"
+                ],
+                answer: 0,
+                explanation: "Axial rotation and posterior motion (Page 49 in first lecture pdf)"
+            },
+            {
+                question: "What is the most obvious and primary motion occurring at the A-C joint?",
+                options: [
+                    "Anterior/Posterior tilt",
+                    "Internal/External rotation",
+                    "Upward/Downward rotation",
+                    "Elevation/Depression"
+                ],
+                answer: 2,
+                explanation: "Upward/Downward rotation (Page 130)"
+            },
+            {
+                question: "During shoulder abduction and flexion, the primary motion at the A-C joint is:",
+                options: [
+                    "Downward rotation",
+                    "Upward rotation",
+                    "Posterior tilt",
+                    "Internal rotation"
+                ],
+                answer: 1,
+                explanation: "Upward rotation (Page 130)"
+            },
+            {
+                question: "Internal and external rotation at the A-C joint occur primarily during which scapulothoracic motions?",
+                options: [
+                    "Elevation and depression",
+                    "Protraction and retraction",
+                    "Anterior and posterior tilting",
+                    "Upward and downward rotation"
+                ],
+                answer: 1,
+                explanation: "Protraction and retraction (Page 130, FIG. 5.19)"
+            },
+            {
+                question: "Anterior and posterior tilting of the scapula at the A-C joint occur during which scapulothoracic motions?",
+                options: [
+                    "Protraction and retraction",
+                    "Upward and downward rotation",
+                    "Internal and external rotation",
+                    "Elevation and depression"
+                ],
+                answer: 3,
+                explanation: "Elevation and depression (Page 130, FIG. 5.19)"
+            },
+            {
+                question: "What is the close-packed position of the A-C joint?",
+                options: [
+                    "Arm by the side",
+                    "Maximum protraction",
+                    "~90° of Glenohumeral abduction",
+                    "Maximum retraction"
+                ],
+                answer: 2,
+                explanation: "~90° of Glenohumeral abduction (Page 58 in first lecture pdf)"
+            },
+            {
+                question: "A Type III (hooked) acromion is present in what percentage of patients with rotator cuff impingement and tears?",
+                options: [
+                    "3%",
+                    "30%",
+                    "50%",
+                    "70%"
+                ],
+                answer: 3,
+                explanation: "70% (Page 22 in first lecture pdf)"
+            },
+            {
+                question: "In elevation or depression of the clavicle at the sternoclavicular joint, sliding and rolling occur in:",
+                options: [
+                    "Same direction",
+                    "Opposite direction",
+                    "Opposite then same",
+                    "None of the above"
+                ],
+                answer: 1,
+                explanation: "Opposite direction (Page 126)"
+            },
+            {
+                question: "For full shoulder elevation to occur, the clavicle must rotate approximately:",
+                options: [
+                    "10-20°",
+                    "20-35°",
+                    "40-50°",
+                    "60-70°"
+                ],
+                answer: 2,
+                explanation: "40-50° (Page 60 in first lecture pdf)"
+            },
+            {
+                question: "If clavicular rotation at the S-C joint is restricted, shoulder elevation will be limited to approximately:",
+                options: [
+                    "90°",
+                    "110°",
+                    "140°",
+                    "160°"
+                ],
+                answer: 1,
+                explanation: "110° (Page 22 in first lecture pdf)"
+            },
+            {
+                question: "The articular disk within the A-C joint is complete in approximately what percentage of people?",
+                options: [
+                    "10%",
+                    "30%",
+                    "50%",
+                    "90%"
+                ],
+                answer: 0,
+                explanation: "10% (Page 131)"
+            },
+            {
+                question: "The capsular pattern for the A-C joint is the same as for which other joint?",
+                options: [
+                    "Glenohumeral Joint",
+                    "Scapulothoracic Articulation",
+                    "Sternoclavicular Joint",
+                    "Elbow Joint"
+                ],
+                answer: 2,
+                explanation: "Sternoclavicular Joint (Page 43 in first lecture pdf)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 Lecture No. 1.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('load', initQuiz);
+    </script>
+</body>
+</html>

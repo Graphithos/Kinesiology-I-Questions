@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 Lecture No. 5 Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 Lecture No. 5 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 Lecture No. 5</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">50</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">50</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/50</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 50 questions from the PDF)
+        const quizData = [
+            {
+                question: "Forearm pronation and supination require simultaneous movement at all of the following joints EXCEPT the:",
+                options: [
+                    "Proximal radio-ulnar joint",
+                    "Distal radio-ulnar joint",
+                    "Humeroradial joint",
+                    "Humero-ulnar joint"
+                ],
+                answer: 3,
+                explanation: "Humero-ulnar joint (Page 81)"
+            },
+            {
+                question: "At the proximal radio-ulnar joint during supination, the radial head rotates within a fibro-osseous ring formed by the annular ligament and the:",
+                options: [
+                    "Capitulum of the humerus",
+                    "Trochlear notch of the ulna",
+                    "Radial notch of the ulna",
+                    "Fovea of the radius"
+                ],
+                answer: 2,
+                explanation: "Radial notch of the ulna (Page 82)"
+            },
+            {
+                question: "At the distal radio-ulnar joint during supination, the arthrokinematics involve the concave ulnar notch of the radius:",
+                options: [
+                    "Rolling and sliding in opposite directions on the ulnar head",
+                    "Spinning on the articular disc",
+                    "Rolling and sliding in similar directions on the ulnar head",
+                    "Translating distally along the ulnar shaft"
+                ],
+                answer: 2,
+                explanation: "Rolling and sliding in similar directions on the ulnar head (Page 82)"
+            },
+            {
+                question: "At the extremes of supination and pronation, the percentage of the ulnar notch of the radius in direct contact with the ulnar head is only about:",
+                options: [
+                    "10%",
+                    "25%",
+                    "50%",
+                    "75%"
+                ],
+                answer: 0,
+                explanation: "10% (Page 83)"
+            },
+            {
+                question: "Full pronation slackens the palmar capsular ligament of the distal radio-ulnar joint to about what percentage of its original length?",
+                options: [
+                    "50%",
+                    "70%",
+                    "90%",
+                    "100%"
+                ],
+                answer: 1,
+                explanation: "70% (Page 85)"
+            },
+            {
+                question: "Which structure is listed as capable of restricting both full supination and full pronation?",
+                options: [
+                    "The Biceps muscle",
+                    "The Supinator muscle",
+                    "The Triangular Fibrocartilage Complex (TFCC)",
+                    "The Interosseous membrane"
+                ],
+                answer: 2,
+                explanation: "The Triangular Fibrocartilage Complex (TFCC) (Page 87)"
+            },
+            {
+                question: "The central band of the interosseous membrane exhibits near-isometric behavior during forearm rotation because its fiber orientation deviates from the axis of rotation by only about:",
+                options: [
+                    "5-7 degrees",
+                    "10-12 degrees",
+                    "20-25 degrees",
+                    "45 degrees"
+                ],
+                answer: 1,
+                explanation: "10-12 degrees (Page 89)"
+            },
+            {
+                question: "Active pronation generates significant compression forces at the humeroradial joint, partly due to the proximal pull of the pronator teres, which is greater when the elbow is near:",
+                options: [
+                    "Full flexion",
+                    "90 degrees of flexion",
+                    "Extension",
+                    "The position of comfort (80 degrees flexion)"
+                ],
+                answer: 2,
+                explanation: "Extension (Page 91)"
+            },
+            {
+                question: "In a weight-bearing position with the hand fixed, pronation of the forearm occurs through:",
+                options: [
+                    "Internal rotation of the humerus and ulna",
+                    "External rotation of the humerus and ulna",
+                    "Abduction of the scapula",
+                    "Anterior tilt of the scapula"
+                ],
+                answer: 1,
+                explanation: "External rotation of the humerus and ulna (Page 94)"
+            },
+            {
+                question: "In a non-weight-bearing (free) supination, the lateral (radial) side of the articular disc is pulled in the direction of the:",
+                options: [
+                    "Fixed ulna",
+                    "Rotating radius",
+                    "Rotating humerus",
+                    "Fixed capitulum"
+                ],
+                answer: 1,
+                explanation: "Rotating radius (Page 99)"
+            },
+            {
+                question: "The musculocutaneous nerve, formed from C5-C7, innervates all of the following muscles EXCEPT the:",
+                options: [
+                    "Biceps brachii",
+                    "Brachialis",
+                    "Coracobrachialis",
+                    "Brachioradialis"
+                ],
+                answer: 3,
+                explanation: "Brachioradialis (Page 100)"
+            },
+            {
+                question: "The deep branch of the radial nerve, after piercing the supinator muscle, becomes the:",
+                options: [
+                    "Anterior Interosseous Nerve",
+                    "Superficial Radial Nerve",
+                    "Posterior Interosseous Nerve",
+                    "Median Nerve"
+                ],
+                answer: 2,
+                explanation: "Posterior Interosseous Nerve (Page 101)"
+            },
+            {
+                question: "The median nerve innervates most muscles attaching on or near the:",
+                options: [
+                    "Lateral Epicondyle",
+                    "Medial Epicondyle",
+                    "Olecranon Process",
+                    "Radial Tuberosity"
+                ],
+                answer: 1,
+                explanation: "Medial Epicondyle (Page 102)"
+            },
+            {
+                question: "The anterior interosseous nerve, a branch of the median nerve, innervates the:",
+                options: [
+                    "Pronator teres and flexor carpi radialis",
+                    "Flexor digitorum superficialis",
+                    "Pronator quadratus and flexor pollicis longus",
+                    "Thenar muscles of the thumb"
+                ],
+                answer: 2,
+                explanation: "Pronator quadratus and flexor pollicis longus (Page 103)"
+            },
+            {
+                question: "The ulnar nerve, formed from C8-T1, innervates the:",
+                options: [
+                    "Brachioradialis",
+                    "Supinator",
+                    "Flexor carpi ulnaris",
+                    "Abductor pollicis brevis"
+                ],
+                answer: 2,
+                explanation: "Flexor carpi ulnaris (Page 104)"
+            },
+            {
+                question: "Injury to which nerve would result in complete paralysis of the elbow extensors?",
+                options: [
+                    "Musculocutaneous Nerve",
+                    "Radial Nerve",
+                    "Median Nerve",
+                    "Ulnar Nerve"
+                ],
+                answer: 1,
+                explanation: "Radial Nerve (Page 105)"
+            },
+            {
+                question: "The distal radio-ulnar joint receives most of its sensory innervation from fibers of the ulnar nerve that enter which spinal nerve root?",
+                options: [
+                    "C5",
+                    "C6",
+                    "C7",
+                    "C8"
+                ],
+                answer: 3,
+                explanation: "C8 (Page 108)"
+            },
+            {
+                question: "Which elbow flexor muscle has the largest physiologic cross-sectional area?",
+                options: [
+                    "Biceps Brachii (long head)",
+                    "Biceps Brachii (short head)",
+                    "Brachialis",
+                    "Brachioradialis"
+                ],
+                answer: 2,
+                explanation: "Brachialis (Page 110)"
+            },
+            {
+                question: "Which elbow flexor muscle has the longest internal moment arm?",
+                options: [
+                    "Biceps Brachii",
+                    "Brachialis",
+                    "Brachioradialis",
+                    "Pronator Teres"
+                ],
+                answer: 2,
+                explanation: "Brachioradialis (Page 110)"
+            },
+            {
+                question: "The biceps brachii produces its maximal EMG activity when performing which actions simultaneously?",
+                options: [
+                    "Flexion and Pronation",
+                    "Extension and Supination",
+                    "Extension and Pronation",
+                    "Flexion and Supination"
+                ],
+                answer: 3,
+                explanation: "Flexion and Supination (Page 111)"
+            },
+            {
+                question: "The brachialis muscle's sole function is to:",
+                options: [
+                    "Flex the elbow and supinate the forearm",
+                    "Flex the elbow and pronate the forearm",
+                    "Flex the elbow",
+                    "Extend the elbow and stabilize the humerus"
+                ],
+                answer: 2,
+                explanation: "Flex the elbow (Page 112)"
+            },
+            {
+                question: "The brachioradialis muscle \"bowstrings\" sharply across the antecubital fossa, thereby increasing its flexion moment arm, when the elbow is flexed to about:",
+                options: [
+                    "30 degrees",
+                    "60 degrees",
+                    "90 degrees",
+                    "120 degrees"
+                ],
+                answer: 2,
+                explanation: "90 degrees (Page 113)"
+            },
+            {
+                question: "Elbow flexor torques are approximately what percentage greater when the forearm is supinated compared to when it is fully pronated?",
+                options: [
+                    "5-10%",
+                    "20-25%",
+                    "40-50%",
+                    "70-80%"
+                ],
+                answer: 1,
+                explanation: "20-25% (Page 117)"
+            },
+            {
+                question: "Average maximal isometric flexion torque for males is:",
+                options: [
+                    "725 kg·cm",
+                    "336 kg·cm",
+                    "421 kg·cm",
+                    "91 kg·cm"
+                ],
+                answer: 0,
+                explanation: "725 kg·cm (Page 119)"
+            },
+            {
+                question: "The internal moment arm for the elbow flexors is maximized, and the biceps tendon insertion is near 90 degrees, at about what elbow angle?",
+                options: [
+                    "30 degrees of flexion",
+                    "60 degrees of flexion",
+                    "100 degrees of flexion",
+                    "130 degrees of flexion"
+                ],
+                answer: 2,
+                explanation: "100 degrees of flexion (Page 121)"
+            },
+            {
+                question: "Combining elbow flexion with shoulder extension, as in pulling a heavy load, reduces the average contraction velocity of the biceps compared to combining elbow flexion with shoulder flexion. This is an example of:",
+                options: [
+                    "Active insufficiency",
+                    "Passive insufficiency",
+                    "A physiologic advantage for a polyarticular muscle",
+                    "A co-contraction synergy"
+                ],
+                answer: 2,
+                explanation: "A physiologic advantage for a polyarticular muscle (Page 125)"
+            },
+            {
+                question: "The primary elbow extensors are the:",
+                options: [
+                    "Biceps brachii and brachialis",
+                    "Triceps brachii and anconeus",
+                    "Supinator and pronator teres",
+                    "Brachioradialis and extensor carpi radialis longus"
+                ],
+                answer: 1,
+                explanation: "Triceps brachii and anconeus (Page 127)"
+            },
+            {
+                question: "The long head of the triceps has its proximal attachment on the:",
+                options: [
+                    "Infraglenoid tubercle of the scapula",
+                    "Radial groove of the humerus",
+                    "Lateral supracondylar ridge",
+                    "Olecranon process of the ulna"
+                ],
+                answer: 0,
+                explanation: "Infraglenoid tubercle of the scapula (Page 128)"
+            },
+            {
+                question: "Compared to the triceps, the anconeus has a relatively small cross-sectional area and moment arm, but its slow-twitch fiber composition makes it ideal for providing:",
+                options: [
+                    "Rapid, explosive extension",
+                    "Powerful adduction of the shoulder",
+                    "Resistance to varus stress",
+                    "\"Background\" joint stability"
+                ],
+                answer: 3,
+                explanation: "\"Background\" joint stability (Page 130)"
+            },
+            {
+                question: "According to the EMG analysis, which elbow extensor is usually the first to initiate and maintain low levels of extension force?",
+                options: [
+                    "Long head of triceps",
+                    "Lateral head of triceps",
+                    "Medial head of triceps",
+                    "Anconeus"
+                ],
+                answer: 3,
+                explanation: "Anconeus (Page 132)"
+            },
+            {
+                question: "Which head of the triceps is considered the \"workhorse,\" active for most elbow extension movements?",
+                options: [
+                    "Long head",
+                    "Lateral head",
+                    "Medial head",
+                    "All heads are equally active"
+                ],
+                answer: 2,
+                explanation: "Medial head (Page 133)"
+            },
+            {
+                question: "The long head of the triceps functions as a:",
+                options: [
+                    "\"Reserve\" elbow extensor, recruited for high-demand tasks",
+                    "Primary stabilizer of the distal radio-ulnar joint",
+                    "Powerful pronator of the forearm",
+                    "Neutralizer of biceps supination torque"
+                ],
+                answer: 0,
+                explanation: "\"Reserve\" elbow extensor, recruited for high-demand tasks (Page 133)"
+            },
+            {
+                question: "Maximal elbow extensor torque occurs when the elbow is flexed to about:",
+                options: [
+                    "0-30 degrees",
+                    "80-90 degrees",
+                    "100-110 degrees",
+                    "120-130 degrees"
+                ],
+                answer: 1,
+                explanation: "80-90 degrees (Page 135)"
+            },
+            {
+                question: "Strong isometric co-activation of the elbow flexors and extensors near 90 degrees of flexion produces a very stable posture, naturally assumed during activities like:",
+                options: [
+                    "Throwing a ball",
+                    "Reaching overhead",
+                    "Arm wrestling",
+                    "Swinging a bat"
+                ],
+                answer: 2,
+                explanation: "Arm wrestling (Page 136)"
+            },
+            {
+                question: "Although the moment arm for the triceps is greatest near full extension, peak extensor torque occurs at 80-90 degrees of flexion. This suggests that which factor is more influential for torque generation in this position?",
+                options: [
+                    "Moment arm",
+                    "Muscle Length",
+                    "Ligament Tautness",
+                    "Nerve Conduction Velocity"
+                ],
+                answer: 1,
+                explanation: "Muscle Length (Page 137)"
+            },
+            {
+                question: "For a muscle to be an effective pronator or supinator, it must have a proximal attachment on the humerus or ulna and a distal attachment on the:",
+                options: [
+                    "Humerus or Scapula",
+                    "Ulna or Carpal bones",
+                    "Clavicle or Sternum",
+                    "Radius or Hand"
+                ],
+                answer: 3,
+                explanation: "Radius or Hand (Page 139)"
+            },
+            {
+                question: "Combining forearm rotation with shoulder rotation allows the hand to rotate in space nearly:",
+                options: [
+                    "180 degrees",
+                    "270 degrees",
+                    "360 degrees",
+                    "90 degrees"
+                ],
+                answer: 2,
+                explanation: "360 degrees (Page 141)"
+            },
+            {
+                question: "The primary supinator muscles are the:",
+                options: [
+                    "Pronator teres and pronator quadratus",
+                    "Supinator and biceps brachii",
+                    "Brachioradialis and anconeus",
+                    "Triceps and anconeus"
+                ],
+                answer: 1,
+                explanation: "Supinator and biceps brachii (Page 145)"
+            },
+            {
+                question: "Which muscle returns the forearm to the neutral position of rotation for an either supinated or pronated position:",
+                options: [
+                    "Biceps brachii",
+                    "Flexor carpi radialis",
+                    "Brachioradialis",
+                    "Pronator teres"
+                ],
+                answer: 2,
+                explanation: "Brachioradialis (Page 146)"
+            },
+            {
+                question: "The supinator muscle is most effective when the forearm is starting from a:",
+                options: [
+                    "Pronated position",
+                    "Supinated position",
+                    "Neutral position",
+                    "Position of 90 degrees of elbow flexion"
+                ],
+                answer: 0,
+                explanation: "Pronated position (Page 147)"
+            },
+            {
+                question: "The nervous system typically recruits the supinator muscle for:",
+                options: [
+                    "High-power supination tasks with elbow extension",
+                    "Low-power tasks requiring supination only",
+                    "Tasks combining supination with shoulder flexion",
+                    "None of the above"
+                ],
+                answer: 1,
+                explanation: "Low-power tasks requiring supination only (Page 149)"
+            },
+            {
+                question: "The effectiveness of the biceps as a supinator is greatest when the elbow is flexed to about:",
+                options: [
+                    "30 degrees",
+                    "60 degrees",
+                    "90 degrees",
+                    "120 degrees"
+                ],
+                answer: 2,
+                explanation: "90 degrees (Page 152)"
+            },
+            {
+                question: "When high-power supination torque is required, which muscle must co-contract with the biceps to neutralize its elbow flexion action?",
+                options: [
+                    "Brachialis",
+                    "Brachioradialis",
+                    "Triceps",
+                    "Pronator teres"
+                ],
+                answer: 2,
+                explanation: "Triceps (Page 154)"
+            },
+            {
+                question: "The primary muscles for pronation are the:",
+                options: [
+                    "Supinator and biceps brachii",
+                    "Brachioradialis and anconeus",
+                    "Flexor carpi ulnaris and palmaris longus",
+                    "Pronator teres and pronator quadratus"
+                ],
+                answer: 3,
+                explanation: "Pronator teres and pronator quadratus (Page 156)"
+            },
+            {
+                question: "The median nerve passes between the two heads of which muscle, making it a potential site for nerve compression?",
+                options: [
+                    "Supinator",
+                    "Pronator Quadratus",
+                    "Pronator Teres",
+                    "Brachialis"
+                ],
+                answer: 2,
+                explanation: "Pronator Teres (Page 157)"
+            },
+            {
+                question: "The pronator quadratus is most active during:",
+                options: [
+                    "High-power pronation only",
+                    "Pronation movements with elbow extension",
+                    "All pronation movements, regardless of power",
+                    "Supination movements to provide stability"
+                ],
+                answer: 2,
+                explanation: "All pronation movements, regardless of power (Page 160)"
+            },
+            {
+                question: "A key function of the pronator quadratus is to:",
+                options: [
+                    "Flex the elbow during pronation",
+                    "Compress and stabilize the distal radio-ulnar joint",
+                    "Supinate the forearm when the biceps is weak",
+                    "Extend the wrist during power grip"
+                ],
+                answer: 1,
+                explanation: "Compress and stabilize the distal radio-ulnar joint (Page 160)"
+            },
+            {
+                question: "In cases of median nerve injury proximal to the elbow, active pronation is essentially lost because:",
+                options: [
+                    "All pronator muscles are paralyzed",
+                    "The radial nerve takes over pronator function",
+                    "The ulnar nerve innervates the pronator quadratus",
+                    "The brachioradialis becomes the primary pronator"
+                ],
+                answer: 0,
+                explanation: "All pronator muscles are paralyzed (Page 158)"
+            },
+            {
+                question: "Tension in the anterior fibers of the Medial Collateral Ligament is increased by which motion?",
+                options: [
+                    "Flexion",
+                    "Varus",
+                    "Valgus",
+                    "Supination"
+                ],
+                answer: 2,
+                explanation: "Valgus (Page 88)"
+            },
+            {
+                question: "Tension in the annular ligament is increased by:",
+                options: [
+                    "Compression of the radius",
+                    "Varus stress",
+                    "Valgus stress",
+                    "Distraction of the radius"
+                ],
+                answer: 3,
+                explanation: "Distraction of the radius (Page 88)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 Lecture No. 5.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

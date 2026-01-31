@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology 1 (Hand P2) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology 1 (Hand P2) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Kinesiology 1 (Hand Muscles, Nerves, and Pulley Systems)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">40</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">40</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/40</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 40 questions from the PDF)
+        const quizData = [
+            {
+                question: "What is the primary reason for the finer movement control in the intrinsic muscles of the hand compared to gross muscles like the gastrocnemius?",
+                options: [
+                    "Larger cross-sectional area",
+                    "Higher number of motor units",
+                    "Smaller muscle fiber per motor axon ratio",
+                    "Greater sensory innervation density"
+                ],
+                answer: 2,
+                explanation: "Smaller muscle fiber per motor axon ratio (Page 4)"
+            },
+            {
+                question: "Which of the following conditions is characterized by crude and uncoordinated movement due to a loss of sensory input while the motor system is spared?",
+                options: [
+                    "Myasthenia gravis",
+                    "Amyotrophic lateral sclerosis",
+                    "Tubes dorsalis",
+                    "Guillain-Barré syndrome"
+                ],
+                answer: 2,
+                explanation: "Tubes dorsalis (Page 5)"
+            },
+            {
+                question: "Which nerve innervates the flexor digitorum superficialis (FDS) muscle?",
+                options: [
+                    "Radial nerve",
+                    "Median nerve",
+                    "Ulnar nerve",
+                    "Musculocutaneous nerve"
+                ],
+                answer: 1,
+                explanation: "Median nerve (Page 8)"
+            },
+            {
+                question: "Sensation from the palmar aspect of the thumb’s carpometacarpal (CMC) joint capsule is carried by which nerve?",
+                options: [
+                    "Median nerve",
+                    "Radial nerve",
+                    "Ulnar nerve",
+                    "Axillary nerve"
+                ],
+                answer: 0,
+                explanation: "Median nerve (Page 8)"
+            },
+            {
+                question: "The deep motor branch of the ulnar nerve innervates all of the following muscle groups EXCEPT:",
+                options: [
+                    "Hypothenar muscles",
+                    "Palmar interossei",
+                    "Dorsal interossei",
+                    "Thenar eminence muscles (APB, FPB, OP)"
+                ],
+                answer: 3,
+                explanation: "Thenar eminence muscles (APB, FPB, OP) (Page 8)"
+            },
+            {
+                question: "Which spinal nerve dorsal root primarily carries sensation from the ring and small fingers?",
+                options: [
+                    "C6",
+                    "C7",
+                    "C8",
+                    "T1"
+                ],
+                answer: 2,
+                explanation: "C8 (Page 9)"
+            },
+            {
+                question: "The anterior interosseous nerve, a branch of the median nerve, innervates which muscles?",
+                options: [
+                    "Flexor digitorum superficialis and Palmaris longus",
+                    "Lateral half of Flexor digitorum profundus and Flexor pollicis longus",
+                    "Pronator teres and Flexor carpi radialis",
+                    "All lumbrical muscles"
+                ],
+                answer: 1,
+                explanation: "Lateral half of Flexor digitorum profundus and Flexor pollicis longus (Page 8)"
+            },
+            {
+                question: "What is the defining characteristic of an intrinsic muscle of the hand?",
+                options: [
+                    "Its proximal attachment is on the epicondyles of the humerus.",
+                    "Both its proximal and distal attachments are within the hand.",
+                    "It primarily acts on the wrist joint.",
+                    "It is innervated solely by the radial nerve."
+                ],
+                answer: 1,
+                explanation: "Both its proximal and distal attachments are within the hand. (Page 11)"
+            },
+            {
+                question: "Which of the following is NOT an extrinsic extensor of the fingers?",
+                options: [
+                    "Extensor digitorum (ED)",
+                    "Extensor indicis (EI)",
+                    "Extensor digiti minimi (EDM)",
+                    "Extensor carpi radialis longus (ECRL)"
+                ],
+                answer: 3,
+                explanation: "Extensor carpi radialis longus (ECRL) (Page 12)"
+            },
+            {
+                question: "Which muscle is the sole flexor of the distal interphalangeal (DIP) joint of the fingers?",
+                options: [
+                    "Flexor digitorum profundus (FDP)",
+                    "Flexor digitorum superficialis (FDS)",
+                    "Lumbricals",
+                    "Flexor pollicis longus (FPL)"
+                ],
+                answer: 0,
+                explanation: "Flexor digitorum profundus (FDP) (Page 15)"
+            },
+            {
+                question: "Why is isolated flexion of a single finger's DIP joint difficult?",
+                options: [
+                    "Because the FDS tendon for each finger is independent.",
+                    "Because the tendons of the FDP for the middle, ring, and small fingers are interconnected via muscle fascicles.",
+                    "Because the lumbricals inhibit DIP flexion.",
+                    "Because the A2 pulley restricts deep tendon excursion."
+                ],
+                answer: 1,
+                explanation: "Because the tendons of the FDP for the middle, ring, and small fingers are interconnected via muscle fascicles. (Page 15)"
+            },
+            {
+                question: "The Flexor Pollicis Longus (FPL) exerts a flexion torque at all of the following joints EXCEPT:",
+                options: [
+                    "Interphalangeal (IP) joint of the thumb",
+                    "Metacarpophalangeal (MCP) joint of the thumb",
+                    "Carpometacarpal (CMC) joint of the thumb",
+                    "Proximal Interphalangeal (PIP) joint of the index finger"
+                ],
+                answer: 3,
+                explanation: "Proximal Interphalangeal (PIP) joint of the index finger (Page 15)"
+            },
+            {
+                question: "What is the primary function of the digital synovial sheath surrounding the flexor tendons?",
+                options: [
+                    "To provide a rigid pulley system",
+                    "To serve as a site for ligament attachment",
+                    "To provide nutrition and lubrication to the tendons",
+                    "To prevent bowstringing of the tendons"
+                ],
+                answer: 2,
+                explanation: "To provide nutrition and lubrication to the tendons (Page 18)"
+            },
+            {
+                question: "Inflammation of the flexor tendons and surrounding synovial membranes, leading to restricted gliding and a potential \"snapping\" phenomenon, is known as:",
+                options: [
+                    "Carpal tunnel syndrome",
+                    "Dupuytren's contracture",
+                    "Tenosynovitis / Trigger finger",
+                    "Rheumatoid nodule"
+                ],
+                answer: 2,
+                explanation: "Tenosynovitis / Trigger finger (Page 18)"
+            },
+            {
+                question: "Which annular pulleys are considered the \"major pulleys\" for the fingers, attaching to the shafts of the proximal and middle phalanges?",
+                options: [
+                    "A1 and A3",
+                    "A2 and A4",
+                    "A3 and A5",
+                    "A1 and A5"
+                ],
+                answer: 1,
+                explanation: "A2 and A4 (Page 20)"
+            },
+            {
+                question: "What is the consequence of injury to a major A2 or A4 flexor pulley?",
+                options: [
+                    "Loss of finger sensation",
+                    "Significant impairment of finger flexion",
+                    "Inability to extend the MCP joint",
+                    "Ulnar deviation of the wrist"
+                ],
+                answer: 1,
+                explanation: "Significant impairment of finger flexion (Page 22)"
+            },
+            {
+                question: "The phenomenon where a tendon pulls away from a joint's axis of rotation during strong contraction due to pulley failure is called:",
+                options: [
+                    "Tenodesis",
+                    "Subluxation",
+                    "Bowstringing",
+                    "Triggering"
+                ],
+                answer: 2,
+                explanation: "Bowstringing (Page 22)"
+            },
+            {
+                question: "During active isolated PIP joint flexion by the FDS, which muscles act as proximal stabilizers to prevent unwanted wrist and MCP joint flexion?",
+                options: [
+                    "Extensor Digitorum and Extensor Carpi Radialis Brevis",
+                    "Flexor Carpi Ulnaris and Pronator Teres",
+                    "Brachioradialis and Supinator",
+                    "Thenar and Hypothenar muscles"
+                ],
+                answer: 0,
+                explanation: "Extensor Digitorum and Extensor Carpi Radialis Brevis (Page 24)"
+            },
+            {
+                question: "The \"tenodesis action\" of the hand refers to:",
+                options: [
+                    "Active finger flexion causing passive wrist extension.",
+                    "Passive finger flexion caused by active wrist extension.",
+                    "The independent action of the lumbricals on PIP joints.",
+                    "The synergistic action of all wrist flexors."
+                ],
+                answer: 1,
+                explanation: "Passive finger flexion caused by active wrist extension. (Page 25)"
+            },
+            {
+                question: "The tendons of the extrinsic finger extensors (ED, EI, EDM) cross the wrist within which structure?",
+                options: [
+                    "Carpal Tunnel",
+                    "Ulnar Tunnel (Guyon's canal)",
+                    "Extensor Retinaculum",
+                    "Transverse Carpal Ligament"
+                ],
+                answer: 2,
+                explanation: "Extensor Retinaculum (Page 28)"
+            },
+            {
+                question: "Which muscle is described as the predominant finger and wrist extensor due to its large cross-sectional area?",
+                options: [
+                    "Extensor Indicis (EI)",
+                    "Extensor Digiti Minimi (EDM)",
+                    "Extensor Digitorum (ED)",
+                    "Extensor Carpi Radialis Longus"
+                ],
+                answer: 2,
+                explanation: "Extensor Digitorum (ED) (Page 28)"
+            },
+            {
+                question: "What is the primary function of the central band of the extensor mechanism?",
+                options: [
+                    "To transmit force from interossei to the DIP joint.",
+                    "To form a sling around the MCP joint.",
+                    "To coordinate movement between PIP and DIP joints.",
+                    "To transmit extensor force from the ED across the PIP joint."
+                ],
+                answer: 3,
+                explanation: "To transmit extensor force from the ED across the PIP joint. (Page 31)"
+            },
+            {
+                question: "The lateral bands of the extensor mechanism transmit extensor force from which muscles across the PIP and DIP joints?",
+                options: [
+                    "Extensor Digitorum (ED) only",
+                    "Lumbricals and Interossei only",
+                    "Extensor Digitorum, Lumbricals, and Interossei",
+                    "Thenar muscles only"
+                ],
+                answer: 2,
+                explanation: "Extensor Digitorum, Lumbricals, and Interossei (Page 31)"
+            },
+            {
+                question: "Which component of the extensor mechanism forms a sling around the proximal end of the phalanx to stabilize and assist the ED in extending the MCP joint?",
+                options: [
+                    "Central band",
+                    "Lateral bands",
+                    "Dorsal hood (transverse fibers)",
+                    "Oblique retinacular ligament"
+                ],
+                answer: 2,
+                explanation: "Dorsal hood (transverse fibers) (Page 31)"
+            },
+            {
+                question: "The oblique fibers of the dorsal hood primarily function to:",
+                options: [
+                    "Connect the extensor tendon to the palmar plate.",
+                    "Transfer force from lumbricals and interossei to the lateral bands.",
+                    "Act as the sole extensor of the DIP joint.",
+                    "Prevent hyperextension of the PIP joint."
+                ],
+                answer: 1,
+                explanation: "Transfer force from lumbricals and interossei to the lateral bands. (Page 31)"
+            },
+            {
+                question: "Which ligament helps coordinate movement between the PIP and DIP joints of the fingers?",
+                options: [
+                    "Oblique retinacular ligament",
+                    "Transverse carpal ligament",
+                    "Radial collateral ligament",
+                    "Deep transverse metacarpal ligament"
+                ],
+                answer: 0,
+                explanation: "Oblique retinacular ligament (Page 31)"
+            },
+            {
+                question: "The tendons of the Abductor Pollicis Longus (APL) and Extensor Pollicis Brevis (EPB) travel through which compartment of the extensor retinaculum?",
+                options: [
+                    "First compartment",
+                    "Second compartment",
+                    "Third compartment",
+                    "Sixth compartment"
+                ],
+                answer: 0,
+                explanation: "First compartment (Page 35)"
+            },
+            {
+                question: "Which three tendons compose the anatomic landmark known as the \"anatomic snuffbox\"?",
+                options: [
+                    "EPL, EPB, APL",
+                    "EPL, ED, EI",
+                    "APL, FPL, APB",
+                    "EPB, APB, OP"
+                ],
+                answer: 0,
+                explanation: "EPL, EPB, APL (Page 35)"
+            },
+            {
+                question: "The Extensor Pollicis Longus (EPL) can perform all of the following actions EXCEPT:",
+                options: [
+                    "Extension of the IP joint of the thumb",
+                    "Adduction of the thumb CMC joint",
+                    "Ulnar deviation of the wrist",
+                    "Lateral rotation of the thumb CMC joint"
+                ],
+                answer: 2,
+                explanation: "Ulnar deviation of the wrist (Page 35)"
+            },
+            {
+                question: "During active extension of the thumb, which muscle acts to ulnarly deviate the wrist to counter the radial deviation tendency of the thumb extensors?",
+                options: [
+                    "Extensor Carpi Radialis Longus",
+                    "Extensor digitorum",
+                    "Flexor Carpi Ulnaris (FCU)",
+                    "Pronator Teres"
+                ],
+                answer: 2,
+                explanation: "Flexor Carpi Ulnaris (FCU) (Page 35)"
+            },
+            {
+                question: "Which of the following muscles is a flexor of the thumb's Carpometacarpal (CMC) joint?",
+                options: [
+                    "Opponens Pollicis",
+                    "Extensor Pollicis Longus",
+                    "Abductor Pollicis Longus",
+                    "First Dorsal Interosseus"
+                ],
+                answer: 0,
+                explanation: "Opponens Pollicis (Page 36)"
+            },
+            {
+                question: "Which of the following muscles is NOT an extensor of the thumb's Metacarpophalangeal (MCP) joint?",
+                options: [
+                    "Extensor Pollicis Brevis",
+                    "Extensor Pollicis Longus",
+                    "Abductor Pollicis Longus",
+                    "Abductor Pollicis Brevis"
+                ],
+                answer: 2,
+                explanation: "Abductor Pollicis Longus (Page 36)"
+            },
+            {
+                question: "What is the sole muscle responsible for flexion of the Interphalangeal (IP) joint of the thumb?",
+                options: [
+                    "Flexor Pollicis Longus",
+                    "Extensor Pollicis Brevis",
+                    "Abductor Pollicis Brevis",
+                    "Extensor Pollicis Longus"
+                ],
+                answer: 0,
+                explanation: "Flexor Pollicis Longus (Page 36)"
+            },
+            {
+                question: "In the transverse view of the carpal tunnel, which structure surrounds and lubricates the tendons of the FDS and FDP?",
+                options: [
+                    "Radial Synovial Sheath",
+                    "Ulnar Synovial Sheath",
+                    "Transverse Carpal Ligament",
+                    "Extensor Retinaculum"
+                ],
+                answer: 1,
+                explanation: "Ulnar Synovial Sheath (Page 19)"
+            },
+            {
+                question: "Annular pulleys (A1-A5) are part of which structure?",
+                options: [
+                    "The Extensor Mechanism",
+                    "The Fibrous Digital Sheath",
+                    "The Dorsal Hood",
+                    "The Palmar Aponeurosis"
+                ],
+                answer: 1,
+                explanation: "The Fibrous Digital Sheath (Page 21)"
+            },
+            {
+                question: "To isolate flexion at the PIP joint, the extensor digitorum must resist the flexion effect of the FDS at which joint(s)?",
+                options: [
+                    "Wrist joint only",
+                    "MCP joint only",
+                    "Both the wrist and MCP joints",
+                    "DIP joint"
+                ],
+                answer: 2,
+                explanation: "Both the wrist and MCP joints (Page 24)"
+            },
+            {
+                question: "Which muscle blends into the distal tendon of the Extensor Pollicis Longus?",
+                options: [
+                    "Abductor Pollicis Brevis",
+                    "Adductor Pollicis",
+                    "First Dorsal Interosseus",
+                    "Opponens Pollicis"
+                ],
+                answer: 0,
+                explanation: "Abductor Pollicis Brevis (Page 32)"
+            },
+            {
+                question: "Where are the cruciate pulleys located?",
+                options: [
+                    "Connected to the shaft of the phalanges",
+                    "At sites where the tendon bends",
+                    "Dorsal at the dorsal hood",
+                    "Deep in the palm"
+                ],
+                answer: 1,
+                explanation: "At sites where the tendon bends (Page 20)"
+            },
+            {
+                question: "Which of the following actions is not of the opponents pollicis?",
+                options: [
+                    "Flexion of the thumb CMC",
+                    "Abduction of the thumb CMC",
+                    "Adduction of the thumb CMC",
+                    "Opposition of the thumb CMC"
+                ],
+                answer: 2,
+                explanation: "Adduction of the thumb CMC (Page 36)"
+            },
+            {
+                question: "Which of the following is true regarding the transverse fibers of the dorsal hood?",
+                options: [
+                    "They connect the extensor tendon to the palmar plate",
+                    "Coordinate the movement between the DIP and the PIP joints",
+                    "Located on the palmar surface",
+                    "None of the above"
+                ],
+                answer: 0,
+                explanation: "They connect the extensor tendon to the palmar plate (Page 31)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Kinesiology 1 (Hand Muscles, Nerves, and Pulley Systems).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
